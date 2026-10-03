@@ -1,0 +1,66 @@
+# ===== 数据 / 结果 / 中间产物：目录保留，内容不入库 =====
+data/*
+!data/.gitkeep
+outputs/*
+!outputs/.gitkeep
+cal/*
+!cal/.gitkeep
+
+# reproduce 下的临时 / 备份 / 缓存
+reproduce/**/_verify_bak*/
+reproduce/**/_bak_*/
+reproduce/**/_tmp_*/
+reproduce/**/__pycache__/
+reproduce/**/outputs/
+
+# ===== 凭据 / 服务器信息（绝不入库）=====
+.claude/
+.vscode/
+.env
+.env.*
+*.pem
+*ssh*.py
+*_ssh.py
+server_setup.py
+HANDOVER*.md
+*_credential*
+*_secret*
+
+# ===== 大文件 / 二进制产物 =====
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.rds
+*.RData
+*.RDS
+*.pkl
+*.joblib
+*.feather
+*.parquet
+*.tar
+*.tar.gz
+*.zip
+*.7z
+logs/
+runs/
+checkpoints/
+
+# ===== 论文 / 内部文档 =====
+AGENTS.md
+*结果*
+*创新点*
+*数据集来源*
+*HANDOVER*
+*.docx
+*.pdf
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
