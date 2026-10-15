@@ -1,0 +1,209 @@
+Device: cuda
+[cuda] fold-sets=10 epochs=1000 modes=['ode_hyper', 'ode_hyper_skip', 'iter_hyper', 'iter_hyper_skip']
+
+============================================================
+  mode: ode_hyper   (h0 = D0)
+============================================================
+  Fold-set 1/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5385
+    [test] pcc=0.5408
+  Fold-set 2/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5125
+    [test] pcc=0.6289
+  Fold-set 3/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5514
+    [test] pcc=0.5286
+  Fold-set 4/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5378
+    [test] pcc=0.5441
+  Fold-set 5/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5172
+    [test] pcc=0.5693
+  Fold-set 6/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5229
+    [test] pcc=0.5616
+  Fold-set 7/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5137
+    [test] pcc=0.5949
+  Fold-set 8/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5327
+    [test] pcc=0.5057
+  Fold-set 9/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5000
+    [test] pcc=0.6077
+  Fold-set 10/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5156
+    [test] pcc=0.5849
+
+  === ode_hyper [train] === pcc=0.5291 R2m=-0.83 MSE_norm=0.020072 NRMSE=0.2082 r_long=0.6658 [20.0 min]
+
+  === ode_hyper [test] === pcc=0.5706 R2m=-1.26 MSE_norm=0.025824 NRMSE=0.2240 r_long=0.6646 [20.0 min]
+
+============================================================
+  mode: ode_hyper_skip   (h0 = D0)
+============================================================
+  Fold-set 1/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5224
+    [test] pcc=0.5611
+  Fold-set 2/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.4863
+    [test] pcc=0.6207
+  Fold-set 3/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5206
+    [test] pcc=0.5400
+  Fold-set 4/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5265
+    [test] pcc=0.5435
+  Fold-set 5/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5008
+    [test] pcc=0.5786
+  Fold-set 6/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5230
+    [test] pcc=0.6058
+  Fold-set 7/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5111
+    [test] pcc=0.5940
+  Fold-set 8/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5200
+    [test] pcc=0.5228
+  Fold-set 9/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5111
+    [test] pcc=0.6089
+  Fold-set 10/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.5006
+    [test] pcc=0.5806
+
+  === ode_hyper_skip [train] === pcc=0.5175 R2m=-0.87 MSE_norm=0.019531 NRMSE=0.2107 r_long=0.6673 [18.8 min]
+
+  === ode_hyper_skip [test] === pcc=0.5807 R2m=-1.49 MSE_norm=0.025274 NRMSE=0.2290 r_long=0.6672 [18.8 min]
+
+============================================================
+  mode: iter_hyper   (h0 = D0)
+============================================================
+  Fold-set 1/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6533
+    [test] pcc=0.6496
+  Fold-set 2/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6510
+    [test] pcc=0.6578
+  Fold-set 3/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6549
+    [test] pcc=0.6493
+  Fold-set 4/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6584
+    [test] pcc=0.6283
+  Fold-set 5/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6500
+    [test] pcc=0.6556
+  Fold-set 6/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6504
+    [test] pcc=0.6302
+  Fold-set 7/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6534
+    [test] pcc=0.6446
+  Fold-set 8/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6612
+    [test] pcc=0.6329
+  Fold-set 9/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6496
+    [test] pcc=0.6499
+  Fold-set 10/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6556
+    [test] pcc=0.6213
+
+  === iter_hyper [train] === pcc=0.6576 R2m=-0.23 MSE_norm=0.017283 NRMSE=0.1767 r_long=0.6661 [16.7 min]
+
+  === iter_hyper [test] === pcc=0.6452 R2m=-0.37 MSE_norm=0.021058 NRMSE=0.1818 r_long=0.6438 [16.7 min]
+
+============================================================
+  mode: iter_hyper_skip   (h0 = D0)
+============================================================
+  Fold-set 1/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6350
+    [test] pcc=0.6804
+  Fold-set 2/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6004
+    [test] pcc=0.6445
+  Fold-set 3/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6298
+    [test] pcc=0.6555
+  Fold-set 4/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6423
+    [test] pcc=0.6464
+  Fold-set 5/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6411
+    [test] pcc=0.6872
+  Fold-set 6/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6386
+    [test] pcc=0.6546
+  Fold-set 7/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6375
+    [test] pcc=0.6636
+  Fold-set 8/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6310
+    [test] pcc=0.6439
+  Fold-set 9/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6080
+    [test] pcc=0.6569
+  Fold-set 10/10 (tr=175, te=35)...
+    inner 1 done     inner 2 done     inner 3 done     inner 4 done     inner 5 done 
+    [train] pcc=0.6262
+    [test] pcc=0.6391
+
+  === iter_hyper_skip [train] === pcc=0.6319 R2m=-0.34 MSE_norm=0.016983 NRMSE=0.1807 r_long=0.6702 [17.1 min]
+
+  === iter_hyper_skip [test] === pcc=0.6607 R2m=-0.32 MSE_norm=0.019522 NRMSE=0.1781 r_long=0.6617 [17.1 min]
+
+============================================================
+SUMMARY (hyper + skip ablation)
+============================================================
+            Mode Split      PCC      R2m   MSE_norm   NRMSE
+       ode_hyper train   0.5291    -0.83   0.020072  0.2082
+       ode_hyper  test   0.5706    -1.26   0.025824  0.2240
+  ode_hyper_skip train   0.5175    -0.87   0.019531  0.2107
+  ode_hyper_skip  test   0.5807    -1.49   0.025274  0.2290
+      iter_hyper train   0.6576    -0.23   0.017283  0.1767
+      iter_hyper  test   0.6452    -0.37   0.021058  0.1818
+ iter_hyper_skip train   0.6319    -0.34   0.016983  0.1807
+ iter_hyper_skip  test   0.6607    -0.32   0.019522  0.1781
+
+Saved -> outputs/reproduce/knode_tp1skip_all_summary.csv / _all_detail.csv

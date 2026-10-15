@@ -1,0 +1,13 @@
+[DEVICE=cuda] dataset=maize P=50 T=25 n_test=5 foldsets=[1, 7] epochs=800
+  foldset 1 rec_t1: tail mean PCC = 0.3396
+  foldset 1 rec_tk: tail mean PCC = 0.8510
+  foldset 1 iter: tail mean PCC = 0.9213
+  foldset 7 rec_t1: tail mean PCC = 0.3355
+  foldset 7 rec_tk: tail mean PCC = 0.8357
+  foldset 7 iter: tail mean PCC = 0.9245
+=== summary (mean over foldsets x tail timepoints) ===
+scenario
+iter      0.922912
+rec_t1    0.337533
+rec_tk    0.843368
+saved -> /data/fandata/dashuaige/outputs/reproduce/knode_extrap_maize_arab/knode_extrap_maize_f1_7_nt5.csv

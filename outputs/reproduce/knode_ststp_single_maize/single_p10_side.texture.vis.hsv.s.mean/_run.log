@@ -1,0 +1,15 @@
+device=cuda mode=single fams=['ststp'] iters=[0, 1, 2] epochs=1000 seed=42
+data: N=330 T=25 P_all=50 times=[15.0, 16.0, 17.0, 18.0, 19.0, 22.0, 23.0, 24.0, 25.0, 26.0, 29.0, 30.0, 31.0, 32.0, 33.0, 36.0, 37.0, 38.0, 39.0, 40.0, 43.0, 44.0, 45.0, 46.0, 47.0]
+mode=single  P=1  性状=['side.texture.vis.hsv.s.mean']
+[iter 0] mode=single P=1 train=275 test=55 | inner-5 ensemble | epochs=1000
+  [iter 0] ststp           done  (6s)
+[iter 1] mode=single P=1 train=268 test=62 | inner-5 ensemble | epochs=1000
+  [iter 1] ststp           done  (5s)
+[iter 2] mode=single P=1 train=281 test=49 | inner-5 ensemble | epochs=1000
+  [iter 2] ststp           done  (6s)
+
+=== overall ===
+  fam      pcc      mse     RMSE       R2     NMSE    NRMSE  n_cells  n_iter
+ststp 0.519984 0.010006 0.095584 0.259931 0.740069 0.209367       72       3
+
+outputs -> /data/fandata/dashuaige/outputs/reproduce/knode_ststp_single_maize/single_p10_side.texture.vis.hsv.s.mean

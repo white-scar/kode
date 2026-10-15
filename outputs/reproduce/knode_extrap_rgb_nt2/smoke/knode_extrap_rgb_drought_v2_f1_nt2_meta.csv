@@ -1,0 +1,20 @@
+key,value
+dataset,rgb
+P,19
+T,12
+n_test,2
+grm_dim,50
+foldsets,1
+n_foldsets,1
+epochs,50
+rank,2
+hid,128
+lr,0.001
+wd,0.0001
+inner_ensemble,5
+device,cuda
+scaler,train-fold per-trait min-max (val/test 不参与统计量)
+metrics,"pcc(=snapshot),mse,nmse,nrmse,r2 同归一化空间; snapshot=跨基因型, longitudinal=跨时点"
+timestamp,2026-09-20T02:44:05
+script,D:\pythonproject\knode\reproduce\knode_extrap_maize_rgb_v2.py
+script_md5,e3643a48e30df25e7b8cc97efa8a41eb

@@ -1,0 +1,20 @@
+key,value
+dataset,rice
+P,20
+T,13
+n_test,2
+grm_dim,10
+foldsets,"1,2,3,4,5,6,7,8,9,10"
+n_foldsets,10
+epochs,1000
+rank,2
+hid,128
+lr,0.001
+wd,0.0001
+inner_ensemble,5
+device,cuda
+scaler,train-fold per-trait min-max (val/test 不参与统计量)
+metrics,"pcc(=snapshot),mse,nmse,nrmse,r2 同归一化空间; snapshot=跨基因型, longitudinal=跨时点"
+timestamp,2026-09-20T10:46:42
+script,/root/autodl-tmp/qkn/reproduce/rice/knode_extrap_maize_rice_v2.py
+script_md5,d28d4701864a398230bd79f067944daa

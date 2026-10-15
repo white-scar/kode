@@ -1,0 +1,108 @@
+Device: cuda
+============================================================
+KNode GRM-DIM scan ¡ª Loading data
+============================================================
+  Genotypes: 330  |  Traits: 50  |  Timepoints: 25
+
+========================================================
+  GRM_DIM = 30  (PCA explained var 0.536, 30 comps)
+========================================================
+    inner 1 done
+    inner 2 done
+    inner 3 done
+    inner 4 done
+    inner 5 done
+    inner 1 done
+    inner 2 done
+    inner 3 done
+    inner 4 done
+    inner 5 done
+  ¡ú GRM_DIM=30: train_pcc=0.4196 test_pcc=0.4409 train_mse=0.007311 test_mse=0.009754 [30.5 min]
+
+========================================================
+  GRM_DIM = 50  (PCA explained var 0.687, 50 comps)
+========================================================
+    inner 1 done
+    inner 2 done
+    inner 3 done
+    inner 4 done
+    inner 5 done
+    inner 1 done
+    inner 2 done
+    inner 3 done
+    inner 4 done
+    inner 5 done
+  ¡ú GRM_DIM=50: train_pcc=0.4226 test_pcc=0.4609 train_mse=0.007467 test_mse=0.009545 [34.4 min]
+
+========================================================
+  GRM_DIM = 100  (PCA explained var 0.864, 100 comps)
+========================================================
+    inner 1 done
+    inner 2 done
+    inner 3 done
+    inner 4 done
+    inner 5 done
+    inner 1 done
+    inner 2 done
+    inner 3 done
+    inner 4 done
+    inner 5 done
+  ¡ú GRM_DIM=100: train_pcc=0.3864 test_pcc=0.4524 train_mse=0.009197 test_mse=0.010091 [31.6 min]
+
+========================================================
+  GRM_DIM = 200  (PCA explained var 0.971, 200 comps)
+========================================================
+    inner 1 done
+    inner 2 done
+    inner 3 done
+    inner 4 done
+    inner 5 done
+    inner 1 done
+    inner 2 done
+    inner 3 done
+    inner 4 done
+    inner 5 done
+  ¡ú GRM_DIM=200: train_pcc=0.3643 test_pcc=0.4384 train_mse=0.010165 test_mse=0.011338 [31.6 min]
+
+========================================================
+  GRM_DIM = 300  (PCA explained var 0.997, 300 comps)
+========================================================
+    inner 1 done
+    inner 2 done
+    inner 3 done
+    inner 4 done
+    inner 5 done
+    inner 1 done
+    inner 2 done
+    inner 3 done
+    inner 4 done
+    inner 5 done
+  ¡ú GRM_DIM=300: train_pcc=0.3800 test_pcc=0.4455 train_mse=0.010210 test_mse=0.010893 [31.6 min]
+
+========================================================
+  GRM_DIM = 330  (PCA explained var 1.000, 330 comps)
+========================================================
+    inner 1 done
+    inner 2 done
+    inner 3 done
+    inner 4 done
+    inner 5 done
+    inner 1 done
+    inner 2 done
+    inner 3 done
+    inner 4 done
+    inner 5 done
+  ¡ú GRM_DIM=330: train_pcc=0.3884 test_pcc=0.4567 train_mse=0.009880 test_mse=0.010288 [31.6 min]
+
+============================================================
+GRM-DIM SCAN SUMMARY (ode_ar, final method)
+============================================================
+ grm_dim  pca_explained_var  elapsed_min  train_pcc  train_mse_norm  test_pcc  test_mse_norm
+      30             0.5356         30.5     0.4196        0.007311    0.4409       0.009754
+      50             0.6872         34.4     0.4226        0.007467    0.4609       0.009545
+     100             0.8645         31.6     0.3864        0.009197    0.4524       0.010091
+     200             0.9706         31.6     0.3643        0.010165    0.4384       0.011338
+     300             0.9974         31.6     0.3800        0.010210    0.4455       0.010893
+     330             1.0000         31.6     0.3884        0.009880    0.4567       0.010288
+
+Saved: ..\outputs\reproduce\knode_grmdim_scan_summary.csv

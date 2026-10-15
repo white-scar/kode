@@ -1,0 +1,9 @@
+Device:cuda maize MAGIC N=330 T=25 P=50 seeds=[42, 1234, 2024, 2025] ep=1000 grm=50
+fold-set 0: train n=275, test n=55
+[真数据] var_top2=0.979 eff95=1
+base             | r_剔t0=0.5144 | per_seed=0.4990 0.5043 0.5046 0.4916 | var_top2=0.9921 (数据 0.979)
+factor12         | r_剔t0=0.4492 | per_seed=0.3942 0.4016 0.4249 0.3894 | var_top2=0.9966 (数据 0.979)
+factor12_resid   | r_剔t0=0.5193 | per_seed=0.5248 0.5111 0.4999 0.4927 | var_top2=0.9921 (数据 0.979)
+[extrap] 训练至 DAS40, 外推 [43, 44, 45, 46, 47]: snapshot PCC [0.462, 0.46, 0.45, 0.444, 0.427] mean=0.449
+
+Saved: knode_tf_mega_fusion_maize.json + _preds.npz

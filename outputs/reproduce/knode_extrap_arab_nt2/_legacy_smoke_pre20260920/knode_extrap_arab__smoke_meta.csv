@@ -1,0 +1,20 @@
+key,value
+dataset,arab
+P,45
+T,14
+n_test,2
+grm_dim,30
+foldsets,1
+n_foldsets,1
+epochs,50
+rank,2
+hid,128
+lr,0.001
+wd,0.0001
+inner_ensemble,5
+device,cuda
+scaler,train-fold per-trait min-max (val/test 不参与统计量)
+metrics,"pcc(=snapshot),mse,nmse,nrmse,r2 同归一化空间; snapshot=跨基因型, longitudinal=跨时点"
+timestamp,2026-09-20T02:33:27
+script,D:\pythonproject\knode\reproduce\arab\knode_extrap_maize_arab_v2.py
+script_md5,b9137aedfd5ba687b7c94e9c39a89ca1

@@ -1,0 +1,14 @@
+Device: cuda
+============================================================
+KNode Ablation (AR no grm) ¡ª Loading data
+============================================================
+  Genotypes: 330  |  Traits: 50  |  Timepoints: 25
+  COND_IN = GRM_DIM(50) + P(50) = 100
+  Ablation modes: ['ode_ar']
+  GRM PCA explained var: 0.687
+
+[========================================================
+  Ablation: ode_ar  (h0 = D15, AR no grm)
+========================================================
+  Fold-set  1 (tr=275, te=55)...
+    inner 1 (tr=211, val=64)... ....

@@ -1,0 +1,2 @@
+dataset,cond,rank,fold,epochs,grm_dim,h2_U,h2_V,cv_U,cv_V,ext_U,ext_V,h2_A,cv_A,ext_A,h2_sig,cv_sig,ext_sig,pcc,mse
+rice,tp1only,20,3,1000,10,0.2937,0.3051,0.4116,0.4233,0.4712,0.49,0.3001,0.4172,0.4795,0.2929,0.3621,0.4682,0.8275,0.005015

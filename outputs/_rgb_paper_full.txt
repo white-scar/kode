@@ -1,0 +1,1440 @@
+Journal of Experimental Botany, Vol. 74, No. 17 pp. 5307–5326, 2023
+https://doi.org/10.1093/jxb/erad216  Advance Access Publication 3 June 2023
+© The Author(s) 2023. Published by Oxford University Press on behalf of the Society for Experimental Biology. All rights reserved. For permissions, please email: 
+journals.permissions@oup.com
+RESEARCH PAPER
+Phenomic data-driven biological prediction of maize through 
+field-based high-throughput phenotyping integration with 
+genomic data
+Alper Adak1,
+, Myeongjong Kang2,
+, Steven L. Anderson3,
+, Seth C. Murray1,*,
+, Diego Jarquin4,
+,  
+Raymond K. W. Wong2,
+ and Matthias Katzfuß2,
+1 Department of Soil and Crop Sciences, Texas A&M University, College Station, TX 77843-2474, USA
+2 Department of Statistics, Texas A&M University, College Station, TX 77843, USA
+3 Syngenta, Naples, FL 34114, USA
+4 Agronomy Department, University of Florida, Gainesville, FL 32611, USA
+* Correspondence: sethmurray@tamu.edu
+Received 14 April 2022; Editorial decision 30 May 2023; Accepted 2 June 2023
+Editor: Susanne Dreisigacker, CIMMYT, Mexico
+Abstract 
+High-throughput phenotyping (HTP) has expanded the dimensionality of data in plant research; however, HTP has 
+resulted in few novel biological discoveries to date. Field-based HTP (FHTP), using small unoccupied aerial vehicles 
+(UAVs) equipped with imaging sensors, can be deployed routinely to monitor segregating plant population interactions 
+with the environment under biologically meaningful conditions. Here, flowering dates and plant height, important phe-
+nological fitness traits, were collected on 520 segregating maize recombinant inbred lines (RILs) in both irrigated and 
+drought stress trials in 2018. Using UAV phenomic, single nucleotide polymorphism (SNP) genomic, as well as com-
+bined data, flowering times were predicted using several scenarios. Untested genotypes were predicted with 0.58, 
+0.59, and 0.41 prediction ability for anthesis, silking, and terminal plant height, respectively, using genomic data, but 
+prediction ability increased to 0.77, 0.76, and 0.58 when phenomic and genomic data were used together. Using the 
+phenomic data in a genome-wide association study, a heat-related candidate gene (GRMZM2G083810; hsp18f) was 
+discovered using temporal reflectance phenotypes belonging to flowering times (both irrigated and drought) trials 
+where heat stress also peaked. Thus, a relationship between plants and abiotic stresses belonging to a specific time 
+of growth was revealed only through use of temporal phenomic data. Overall, this study showed that (i) it is possible 
+to predict complex traits using high dimensional phenomic data between different environments, and (ii) temporal 
+phenomic data can reveal a time-dependent association between genotypes and abiotic stresses, which can help 
+understand mechanisms to develop resilient plants.
+Keywords:   Genomic prediction, high-throughput genotyping, high-throughput phenotyping, phenomic prediction, plant 
+breeding (corn), time-dependent association.
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+5308  |  Adak et al.
+Introduction
+Genetic gain relies on selection intensity, selection accuracy, 
+genetic variance, and the interplay within cycles over time 
+(Heffner et al., 2009). These parameters have direct relation-
+ships with both the quality and quantity of phenotype data. 
+Increasing selection intensity and selection accuracy requires 
+growing large numbers of genetically diverse materials and 
+collecting phenotypic data from each genotype across cycles. 
+Traditional phenotyping approaches provide limited data that 
+are resource intensive and scale poorly across time. This results 
+in increased uncertainty and error-prone decision-making 
+with low accuracy in downstream statistical analysis (Furbank 
+and Tester, 2011; Desta and Ortiz, 2014; Araus et al., 2018). 
+Field-based high-throughput phenotyping (FHTP) tech-
+nology can supply phenomic data that have high time-dimen-
+sional (multiple time points) and high organismal resolution, 
+despite increasing computational demands and processing. 
+FHTP is more affordable per observation and less arduous 
+compared with traditional phenotyping methodologies (Shi 
+et al., 2016). Using unmanned (aka unoccupied or uncrewed) 
+aerial vehicles (UAVs, aka drones) equipped with high-tech 
+sensors, plant nurseries and trials can be screened multiple 
+times with high spatial (pixel) and temporal (days) resolution 
+and at different plant growth stages. Reflectance bands cap-
+tured can be used as novel predictors and/or secondary traits 
+in prediction of agronomically important traits, such as yield 
+and flowering time (Rutkoski et al., 2016; Aguate et al., 2017; 
+Wu et al., 2019; Galán et al., 2020; Adak et al., 2021c; Sandhu 
+et al., 2021). Extracting reflectance band data from remotely 
+sensed images over multiple time points reveals novel tem-
+poral phenotypic values for diverse genotypes that can pro-
+vide key information for plant scientists to discover critical 
+time–trait combinations. This also allows early selection cri-
+teria to be proposed, before traditional end-of-season pheno-
+types, such as grain yield, have been collected (Sun et al., 2019; 
+Krause et al., 2020; Adak et al., 2021c), similar to genomic-
+based approaches.
+Complex quantitative traits (e.g. yield, plant height, and 
+flowering times) generally follow an omnigenic model, where 
+thousands of small interacting loci contribute to the forma-
+tion of the phenotype (Boyle et al., 2017). To include omnige-
+nic contributions of genome-wide markers in selection, they 
+can be used as predictors of genetic merit for the phenotypic 
+formation of complex traits; this method was first applied in 
+maize as genomic prediction (GP) by Bernardo (1994), also 
+known as genomic best linear unbiased prediction (GBLUP) 
+today. Subsequently, Bayesian GP methods (Meuwissen et al., 
+2001) and ridge-regression BLUP (rrBLUP) (Whittaker et al., 
+2000; Endelman, 2011) were developed. Prediction results of 
+these models across genome-wide markers are now applied 
+to the selection of candidate plants known as genomic selec-
+tion (GS) (Bernardo and Yu, 2007). GS has proved reliable for 
+the selection of complex traits in various crops during plant 
+breeding cycles (Heslot et al., 2015; Windhausen et al., 2012; 
+Zhao et al., 2012; Crossa et al., 2014). However, GS requires 
+significant effort in DNA extractions and genotyping to obtain 
+useful genome-wide markers from populations with GP mod-
+els. The GS model must be trained for hundreds to thousands 
+of candidate plants, then the model must be updated again in 
+each growing period for selection. To train accurate GS mod-
+els, large phenotypic datasets must be collected, a bottleneck 
+in prediction. Reducing resources needed and improving the 
+throughput of data collection using FHTP technologies is 
+critical to (i) associate phenotypic traits with genomic data to 
+boost the potential of GS and (ii) use directly as novel predic-
+tors, and where a biological basis of these predictors can be 
+explored.
+FHTP has revealed dynamic associations between genomic 
+data and temporal phenotypes of complex traits never be-
+fore possible in plants (Bac-Molenaar et al., 2015; Pauli et al., 
+2016; Campbell et al., 2017; Feldman et al., 2017; Ward et al., 
+2019; Anderson et al., 2020; Rodene et al., 2022; Adak et al., 
+2023b). Phenomic data collected from multiple environments 
+and/or multiple time points can serve as better predictors than 
+genome-wide markers for selecting desired plants in plant 
+breeding (Bernardo, 2021). HTP data can enhance the predic-
+tion of complex traits in plants, as well as supply complemen-
+tary phenomic datasets for genomics to dissect complex traits 
+and their differences in sensitivity to the environments during 
+growth.
+When combined with high-revisit temporal UAV pheno-
+typic data, genome-wide markers have had fluctuating pheno-
+typic effects sizes in genome-wide association studies (GWAS) 
+and quantitative trait locus (QTL) studies during crop growth 
+(Anderson et al., 2020; Adak et al., 2021a, 2023b; Wang et al., 
+2021; Rodene et al., 2022). This phenomenon demonstrates 
+that the same markers can have temporally different fitness 
+for both traits and genotypes. Much like using genome-wide 
+markers as predictors, temporal phenotype data of different 
+sensor-based traits (e.g. vegetation indices) can also be used as 
+predictors. The predictive ability can then be compared with 
+the predictive ability of genome-wide markers (Rincent et al., 
+2018; Adak et al., 2023b).
+Genome-wide markers are collected once, and different 
+individuals are typically straightforward to compare at the 
+same genetic location regardless of when the data are col-
+lected. In contrast, phenomic markers are temporally and 
+environmentally dependent and it is still not straightforward 
+to compare phenomic features collected in different envi-
+ronments, at different growth stages, or on different days. 
+Temporal phenotypes are characterized by changing envi-
+ronmental variables across growth stages, resulting in unique 
+trajectories specific to each environment; these unique 
+trajectories may also serve as novel predictors of complex 
+traits across diverse environments. Close similarity between 
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+Phenomic data-driven biological prediction  |  5309
+training and testing environments is a requirement for success 
+in genomic prediction; however, this similarity requirement 
+appears lower for temporal phenomic data. Temporal phe-
+nomic data capture the variation of different environments 
+and ability to provide more than one different value for each 
+genotype in each environment, which is not possible with 
+genomic data.
+This study used recombinant inbred lines (RILs) from the 
+three different bi-parental maize populations totaling 520 
+RILs, grown in irrigated and non-irrigated (drought) trials that 
+served as different environments in 2018. Multiple UAV sur-
+veys were conducted using red–green–blue (RGB) sensors and 
+multispectral sensors in irrigated and drought trials. The 520 
+RILs were also genotyped using an Infinium genotyping assay. 
+Days to anthesis (DTA), days to silking (DTS), and terminal 
+plant height (PHT) were collected from RILs across irrigated 
+and drought trials and predicted by phenomic and genomic 
+data using the different scenarios. Specifically, our objectives 
+were as follows. (i) To predict the flowering times of unob-
+served genotypes between irrigated and drought trials using 
+temporal phenomic data derived from RGB and multispec-
+tral FHTPs, and compare the phenomic prediction accuracies 
+across irrigated and drought trials. (ii) To compare prediction 
+abilities of different models with combinations of genomic and 
+phenomic data. (iii) To integrate temporal phenomic data with 
+genomic data via a GWAS.
+Materials and methods
+Developing recombinant inbred lines and experimental design
+Parental maize inbred lines used for constructing the three bi-paren-
+tal linkage populations were developed from crosses Ki3×NC356, 
+LH82×LAMA, and Tx740×NC356 (Chen, 2016). From 2014 to 2018, 
+these populations were advanced to the F7:8 using the single seed descent 
+method across College Station (summer nursery) and Weslaco (winter 
+nursery), Texas. In total, 238, 178, and 104 RILs were derived from 
+Ki3×NC356, LH82×LAMA, and Tx740×NC356, respectively. LH82 
+is a temperate adapted line while Ki3 is tropical and NC356, LAMA, 
+and Tx740 are tropical genetic background but temperate selected lines. 
+The LAMA line [pedigree: (LAMA2002-12-1-B-B-B-B/LAMA2002-
+1-5-B-B-B-B)-3-2-B-1-B3-B] parent is expected to be 50% related to 
+Tx740 [pedigree: (LAMA2002-12-1-B-B-B)] (Mayfield et al., 2012). All 
+plantings were set using ranges (horizontal grids, 0.76 m between plots) 
+and rows (lateral grids 3.81 m long per plot) accounting for random-
+ized complete block design with two replications. The experimental de-
+sign is visually represented in Supplementary Fig. S1. The RILs were 
+grown under two different experimental conditions, with and without 
+irrigation, and referred to as irrigated and drought trials in this study. 
+These trials were two different managements at the same location in 
+the same year, but for ease of presentation we use the term environment 
+to separate them here. RILs were planted on 14 March 2018 (irrigated 
+and drought trials). Flowering time includes both anthesis and silking in 
+maize (Colasanti and Muszynski, 2009). DTA and DTS were recorded 
+for each row plot across trials; DTA and DTS were recorded as the time 
+from planting to when at least 50% of a plot initiated anthesis and silk-
+ing, respectively. PHT was measured manually from the ground to the 
+tip of the tassel in each row plot at the end of the reproductive stage; 
+flowering times and plant heights were recorded in Field book (Rife 
+and Poland, 2014).
+Field-based high-throughput phenotyping platforms and image 
+processing
+Two different UAV platforms were used in this study. A rotary wing 
+type UAV (DJI Phantom 3 Professional) equipped with an RGB sensor 
+(12 megapixel DJI FC300X camera) was flown at an altitude of 25 
+m resulting in ~1  cm per pixel resolution. Additionally, a fixed-wing 
+Tuffwing UAV mapper equipped with a multispectral camera (MicaSense 
+RedEdge-MX) was flown at an altitude of 120 m resulting in ~7.5 cm 
+per pixel resolution. In both platforms, 80% side and forward overlap was 
+used. The RGB platform was flown 16 times over irrigated and drought 
+trials. Dates of the flights belonging to both platforms with corresponding 
+days after planting times are shown in Fig. 1.
+To obtain the orthomosaics for every flight, raw images belonging to 
+each flight were processed in Pix4Dmapper (https://www.pix4d.com) 
+for RGB, and Agisoft PhotoScan (Agisoft PhotoScan Professional v. 1.2. 
+Fig. 1.  Field-based high-throughput phenotyping (FHTP) using data from unmanned aerial vehicle (UAV) platforms collected in 2018 irrigated and 
+drought trials. A UAV with an RGB camera was flown in 16 flights throughout growth for the 2018 drought and irrigated trials. A UAV equipped with 
+a multispectral camera was flown in eight flights during 2018 (both irrigated and drought) trials. Timeline of FHTP shows the flight dates as days after 
+planting indicated by orange circles and numbers.
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+5310  |  Adak et al.
+4) for multispectral platforms, respectively. Later, each orthomosaic was 
+subjected to plot-based data extraction.
+Data extraction from orthomosaics
+A shapefile was first created in QGIS containing the examined pop-
+ulation field in each orthomosaic; each orthomosaic was clipped into 
+population levels in QGIS (https://qgis.org/en/site) using the ‘Clip 
+Raster by Mask Layer’ function, and further data extraction was con-
+ducted in R. UAStools (https://github.com/andersst91/UAStools, 
+Anderson and Murray, 2020) and FIELDimageR (https://github.com/
+OpenDroneMap/FIELDimageR, Matias et al., 2020) packages were 
+used in R to create the shape files and extract the vegetation indices 
+(VIs), respectively. Briefly, (i) shape files for each plot were created using 
+the field map, where range, row, and plot information are stored, using 
+UAStools::plotshpcreate(); (ii) high-resolution orthomosaics (only in the 
+RGB FHTP platform) were reduced using the raster::aggregate(); (iii) 
+FIELDimageR::fieldmask() was used to remove the soil from the vegeta-
+tion; (iv) FIELDiamgeR::fieldindex() was used to define the VIs; and (v) 
+FIELDimageR::fieldInfo() was used to extract the defined VIs for each 
+plot according to the shapefile created in step (i). More complete descrip-
+tions of these steps can be found in (Adak et al., 2023b). VIs used in this 
+study are presented in Supplementary Table S1.
+Statistical analysis of phenomic data within an environment
+An interaction design was implemented to examine genotypic variation 
+of RILs for each VI extracted from orthomosaics at all flight times of 
+RGB FHTP and multispectral platforms. The interaction design model 
+was used to dissect performance of each RIL across flight times to predict 
+the temporal BLUPs (Adak et al., 2023a). The interaction design was run 
+using restricted maximum likelihood (REML) mixed models for each VI 
+where all components in Equation 1) were attributed as random effects 
+in lme4 in R (Bates et al., 2015). In the following models, a subpopulation 
+effect was not included since no significant differences in variance were 
+found between subpopulations.
+Yijklm = µ + Fi + Gj + (FG)(i×j) + Rangek + Rowl + Repm + εijklm
+
+ (1)
+where, Yijklm is the value of each vegetation index of each row plot at all 
+flight times; µ=overall mean; Fi=the random effect of the ith flight time 
+(as days after planting time; DAP) with Fi
+iid ~N(0,σ2
+Fi), i∊{66, 68, 86, 
+91, 96, 100, 105, 117; Tuffwing with multispectral camera FHTP plat-
+form including irrigated and drought trials}, and i∊{27, 34, 42, 56, 61, 
+64, 68, 71, 75, 78, 82, 84, 90, 99, 110, 127; RGB FHTP including irri-
+gated and drought trials}; Gj=the random effect of the jth RIL with Gj
+iid 
+~N(0,σ2
+Gj), j∊{ 1,…,520}; (FG)(i×j)=the random effect of the interaction 
+between the ith flight time and jth RIL with (FG)(i×j)
+iid ~N[0,σ2
+(FG) (i×j)]; 
+Rangek=the random effect of kth range with Rangek
+iid ~N(0,σ2
+Rangek), 
+k∊{1,…,32}; Rowl=the random effect of the lth row with Rowl
+iid 
+~N(0,σ2
+Rowi), l∊{1,…,38}; Repm=the random effect of the mth replica-
+tion with Repm
+iid ~N(0,σ2
+Repm), m∊{1,…,2}; and εijklm is pooled error 
+with εijklm
+iid ~N(0,σ2εijklm). Results of the interaction between the flight 
+time and RILs [(FG)(i×j)] component of each VI in Equation 1 was then 
+combined to create the phenomic data and used as predictors in the pre-
+diction models. Thus 560 and 704 predictors in RGB and multispectral 
+FHTP, respectively, were extracted to be used in prediction models to 
+predict DTA, DTS, and PHT. A total of 515 RILs (with complete ge-
+nomic data, below), 16 times, and 35 VIs (32 VIs plus red, green, and blue 
+bands) were used in RGB phenomic data belonging to the drought and 
+irrigated trials. In total, 288 400 data points were used in RGB phenomic 
+data for each trial. A total of 515 RILs (with genomic data), eight times, 
+and 88 VIs (83 VIs plus red, green, blue, red-edge, and near infrared bands) 
+were used in multispectral phenomic data belonging to drought and irri-
+gated trials. In total, 362 560 data points were used in multispectral phe-
+nomic data for each trial. Heritability (H) of temporal values of each VI 
+was calculated based on Equation 2:
+H =
+σ2
+Gi
+σ2
+Gi +
+σ2
+(GF)i×j
+no. of flight +
+σ2
+εijklm
+no. of rep × no. of flight
+
+ (2)
+Dependent phenotypic traits DTA, DTS, and PHT were predicted to 
+obtain the actual breeding values (ABVs) for each RIL using Equation 1 
+where the flight components were removed.
+Statistical analysis of differences in flowering times and plant 
+height between environments
+A genotype by environment model was run for manually collected flow-
+ering times (DTA and DTS) and terminal plant height (PHT) combining 
+the irrigated and drought trials based on Equation 3 using REML in 
+mixed model as follows:
+Yijklm = µ + Gi + Ej + (GE)i×j + Rangek + Rowl + Repm + εijklm
+
+ (3)
+Where, µ= overall mean; Gi=the random effect of the ith RIL with 
+Gi
+iid ~N(0,σ2
+Gi), i∊{1,…,520} Ej=the random effect of the jth environ-
+ment with Ej
+iid ~N(0,σ2
+Ej), j∊{irrigated and drought trials}; (GE)(i×j)=the 
+random effect of interaction of the ith RIL at the jth environment; 
+Rangek=the random effect of the kth range with Rangek
+iid ~N(0,σ2
+Rangek), 
+l∊{1,…,32; irrigated and drought trials}; Rowl=the random effect of the 
+lth row with Rowl
+iid ~N(0,σ2
+Rowl), l∊{1,…,38}; Repm= the random effect 
+of the mth replication with Repm
+iid ~N(0,σ2
+Repm), m∊{1 and 2}; and εijklm 
+is pooled error with εijklm
+iid ~N(0,σ2εijklm).
+Heritability (H) for DTA, DTS, and PHT across trials in irrigated and 
+drought trails were calculated based on Equation 4:
+H =
+σ2
+Gi
+Å
+σ2
+Gi +
+σ2
+(GE)i×j
+no. of environment +
+σ2 εijkl
+no. of environment × no. of rep
+ã
+
+ (4)
+DNA extraction, genotyping, and filtering
+DNA procedures were previously documented in Chen (2016) but are 
+briefly described here. Genomic DNA samples extracted from eight seed-
+lings were bulked for each RIL using a CTAB (cetyltrimethylammonium 
+bromide) protocol (Chen and Ronald, 1999). Genomic DNA for each 
+of the 520 genotypes was collected using an Infinium whole-genome 
+genotyping assay in AgReliant Genetics LLC; 515 were successfully geno-
+typed, resulting in 17 444 genome-wide single nucleotide polymorphisms 
+(SNPs). B73 RefGEN_v3 was used to determine the physical location of 
+the genome-wide SNPs (Schnable et al., 2009). Tassel 5 software (Bradbury 
+et al., 2007) was used to filter and impute the genomic data as follows: (i) 
+heterozygote calls set as missing; (ii) markers filtered if allele frequency 
+was <0.05 and missing values were >10% across RILs; and, finally (iii) ge-
+nomic data were imputed based on LD-kNNi (Money et al., 2015). As a 
+result, 11 334 SNPs were used in GWAS and genomic prediction.
+Prediction model and prediction ability
+Genomic data and the two different types of phenomics data (RGB and 
+multispectral) were used as predictors in modeling tested and untested 
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+Phenomic data-driven biological prediction  |  5311
+genotypes in observed and unobserved environments. Flowering times 
+(DTA and DTS) and PHT of 515 RILs were predicted based on the 
+seven different models across irrigated and drought trials using the BGLR 
+package in R (Pérez and de los Campos, 2014). RGB phenomic data 
+contained 288 400 data points (515 RILs×35 VIs×16 flight times) sep-
+arately for each of the irrigated and drought trials (576 00 data points 
+in total). Multispectral phenomic data contained 362 560 data points 
+(515 RILs×88 VIs×8 flight times) separately for each of the irrigated and 
+drought trials (725 120 data points in total). Seven different models (Table 
+1) were used to predict DTA, DTS, and PHT across irrigated and drought 
+trials. In these models, y was DTA, DTS, or PHT of 515 RILs grown in 
+irrigated and drought trials; E represented the environment where the 
+genotypes were observed and it was modeled as E ∼N
+Å
+0, ZEZ
+′
+E
+2
+ã
+ with 
+ 
+ZE as the incidence matrix that connected phenotypes with environ-
+ments (irrigated and drought trials); g was the vector of genomic effects 
+and it was modeled using the matrix of SNP markers as linear com-
+binations between p marker and their corresponding effects such that 
+ 
+g =
+®
+gi =
+p
+j=
+xijbj
+´
+∼N
+Ä
+0, ZgGZ′
+gσ2
+g
+ä
+ with G = XX′
+p , X is the 
+ 
+centered and standardized (by columns) matrix of marker SNPs 
+(VanRaden, 2008), σ2
+g was the associated variance component, and 
+Zg was the corresponding incidence matrix that connected pheno-
+typic observations with genotypes; while r and m were the phenomic 
+effects associated with the RGB and the multispectral data, respectively. 
+Similarly to the genomic effect, these were modeled via a linear com-
+bination between the VIs derived from FHTP and their corresponding 
+ 
+effects such that r ∼N
+
+0, RR′σ2
+r
+16×35
+
+ and m ∼N
+
+0, MM′σ2
+m
+88×8
+
+ where R  
+ 
+and M were relationship matrices derived from RGB and multispectral 
+phenomic data respectively, and σ2
+r and σ2
+m were the associated vari-
+ance components. The interaction terms between environments E and 
+the genomic markers (g×E) or the VIs derived from RGB FHTP (r×E) 
+or multispectral FHTP (m×E)were modeled according to Jarquín et al. 
+(2014). Briefly, the Hadamard product (# cell-by-cell product) of the 
+associated co-variance structures of these model terms was computed 
+ 
+such that g × E
+Å
+0,
+ZEZ
+′
+E #ZgGZ′
+g σ2
+g×E
+2
+ã
+; r × E
+
+0,
+RR′#ZEZ′
+Eσ2
+r×E
+16×35×2
+
+, and; 
+ 
+m × E ∼N
+
+0,
+MM′#ZEZ′
+Eσ2
+m×E
+88×8×2
+
+ with σ2
+g×E, σ2
+r×E, and σ2
+m×E as the 
+ corresponding variance components.
+To assess the models, prediction ability was calculated via Pearson’s 
+correlation between actual values and predicted values of RILs based on 
+four different scenarios using 5-fold cross-validation with 25 replications; 
+one replication of 5-fold cross-validation is illustrated in Supplementary 
+Fig. S2 and explained as follows (Burgueño et al., 2012). Four prediction 
+scenarios (CV1, CV2, CV0, and CV00) relevant to plant breeding pro-
+grams were applied to each of the seven prediction models. The tested 
+RILs were randomly selected RILs that were used in the training of the 
+models (4-fold=412 RILs), and the untested RILs were those excluded 
+from the models (1-fold=103 RILs).
+For CV1 and CV2, models were trained using the tested RILs in 
+both irrigated and drought trials. Here irrigated and drought trials were 
+considered observed environments together, since predicted (DTA, DTS, 
+and PHT) and predictor variables (phenomic and genomic data) of ran-
+domly selected tested RILs from both irrigated and drought trials were 
+used to train models. Then, both the tested and untested RILs were pre-
+dicted, and the two types of correlations for each model were calculated 
+as follows: the correlation between the predicted and actual values of the 
+untested RILs, called the CV1 scenario, and the correlation between the 
+predicted and actual values of the tested RILs, called the CV2 scenario.
+For CV0 and CV00, models were trained using the tested RILs in 
+only the irrigated trial. Here irrigated and drought trials were consid-
+ered the observed and unobserved environments, respectively, as pre-
+dicted (DTA, DTS, and PHT) and predictor variables (phenomic and 
+genomic data) of randomly selected tested RILs (4-fold=412 RILs) 
+from only the irrigated trial were used to train models. Then, both the 
+tested and untested RILs were predicted, and the two types of correla-
+tions for each model were calculated as follows: the correlation between 
+the predicted and actual values of the tested RILs (the same 412 RILs 
+trained in the irrigated trial) in the drought trial was called the CV0 
+scenario. The correlation between the predicted and actual values of the 
+untested RILs (the remaining 103 RILs) in the drought trial was called 
+the CV00 scenario. To sum up, CV1 indicates the prediction of untested 
+RILs in an observed environment; CV2 indicates the prediction of 
+tested RILs in an observed environment; CV0 indicated the prediction 
+of tested RILs in an unobserved environment; and CV00 indicates the 
+prediction of untested RILs in an unobserved environment. Prediction 
+was performed from favorable to unfavorable environments in CV0 and 
+CV00 scenarios.
+The average prediction ability (rφ) was calculated based on Tiezzi et al. 
+(2017) using the prediction ability of each environment and its sample 
+sizes.
+rϕ =
+I
+i=1
+ri
+V(ri)
+I
+i=1
+1
+V(ri)
+Where, ri is Pearson’s correlation between actual values and predicted 
+values in the ith environment, V (ri) = 1−ri
+ni−2 is the sampling variance, with 
+ni being the number of RILs in an environment.
+Temporal genomic prediction
+Temporal values of the NDRBI (normalized difference red blue index) 
+from high-resolution RGB phenomic data were used; this model was 
+intended to examine the prediction ability of genome-wide markers for 
+temporal values of this trait derived from RGB FHTP. The temporal ge-
+nomic prediction model was used as follows:
+y = µ + F + g + (g × F) + ε
+
+ (5)
+Here y is the NDRBI values of RILs (515) derived from Equation 1 
+belonging to 16 time points (27, 34, 42, 56, 61, 64, 68, 71, 75, 78, 82, 
+84, 90, 99, 110, and 127 DAPs); F represents the flight effect and it is 
+modeled via ZF, the incidence matrix that accounts for 16 flights used 
+in RGB FHTP; and g is the genomic component modeled as previ-
+ously described (VanRaden, 2008). The interaction (g×F) is between 
+Table 1.  The prediction models with their notations (× indicates 
+the terms in interaction)
+Model Notation 
+M1
+y = µ + E + R + ε
+M2
+y = µ + E + M + ε
+M3
+y = µ + E + g + ε
+M4
+y = µ + E + g + R + ε
+M5
+y = µ + E + g + M + ε
+M6
+y = µ + E + g + R + M + ε
+M7
+y = µ + E + g + R + M + (g × E) + (R × E) + (M × E) + ε
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+5312  |  Adak et al.
+the genomic relationship matrix and the flight matrix and it is modeled 
+such that g × F ∼
+Å
+0,
+ZFZ
+′
+F #ZgGZ′
+g σ2
+g×F
+16
+ã
+. This model was run for each 
+ 
+trial (drought and irrigated) separately. Prediction was performed simi-
+larly to as described in ‘Prediction model and prediction ability’. Briefly, 
+5-fold cross-validation with 25 replications was applied; the model was 
+trained using tested RILs (4-fold=412 RILs) and the remaining RILs 
+(1-fold=103 RILs) were untested RILs that were used to calculate the 
+prediction ability in each replication. Pearson’s correlation was calculated 
+as a unit of prediction ability between predicted and actual values of 
+NDRBI of untested RILs for each trial and time point. The Wilcoxon 
+test was applied to compare the prediction ability between trials at each 
+time point.
+Genome-wide association study of temporal traits and flowering 
+times
+Beyond prediction, it is valuable to understand the underlying biological 
+function of phenomic data that predict the DTA, DTS, and PHT. The 
+GLM (general linear model) with three principal components (PCAs) 
+(GLM+PCA) was conducted in GAPIT (version 3) for GWAS in R 
+using 11 334 filtered SNPs (Wang and Zhang, 2021). Predicted geno-
+typic effects of DTA, DTS, and PHT and predicted phenotypic effects 
+of all VIs belonging to all flight times in RGB and multispectral FHTP 
+platforms belonging to the irrigated and drought trials were used as phe-
+notype data. Overall, 35 VIs belonging to 16 flight times derived from 
+RGB FHTP and 88 VIs belonging to eight flight times derived from 
+multispectral FHTP collected across 515 RILs grown in the irrigated 
+and drought trials were used as phenotype data in GWAS. PCA was cal-
+culated from genomic data in Tassel 5 software (Bradbury et al., 2007). 
+Three PCs (explaining 26.4, 8.3, and 2.2% among the first three PCs) 
+were used to account for population structure of the three RIL pop-
+ulations. Population structure, PC scores, and SNP distribution across 
+each chromosome are shown in Fig. 2. A Bonferroni threshold of 5.36 
+was calculated based on a P-value of 0.05 (0.05/no. of markers); this 
+threshold was applied to consider the SNPs as significant. Meff signifi-
+cance threshold was calculated as 4.48 (Li and Ji, 2005). Candidate genes 
+were identified within 100 kb of discovered SNPs, as well as within the 
+linkage disequilibrium (LD) block where the minimum R2 value was 
+0.8. LD was calculated and visualized using the LDheatmap package 
+in R (Shin et al., 2006). LD blocks of 10 chromosome are presented in 
+Supplementary Fig. S3.
+Fig. 2.  (A) Biplot illustration including the first two principal components (PCs) showing separation of 520 recombinant inbred lines (RILs). (B) Scree plot 
+showing explained percentage variation by each PC. (C) Distance matrix showing the population structure of 520 RILs. (D) Distribution of 11 334 filtered 
+SNPs across 10 chromosomes.
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+Phenomic data-driven biological prediction  |  5313
+Results
+Interaction design results: temporal repeatability, 
+variance components, temporal breeding values, and 
+correlation
+The RGB platform had higher ground resolution (~1 cm per 
+pixel) than the multispectral platform (~7.5  cm per pixel), 
+indicating that RGB had greater resolution. Among the major 
+causes was a lower flight altitude (25 m) of the RGB platform 
+than the multispectral HTP platform. This resulted in overall 
+higher heritability values in RGB phenomic data. Heritability 
+of VIs in multispectral phenomic data varied between ~0.10 
+and 0.85 in the irrigated trial, and ~0.13 and 0.86 in the 
+drought trial, whereas heritability of VIs in RGB phenomic 
+data varied between ~0.84 and 0.93 in the drought trial, and 
+~0.86 and 0.92 in the irrigated trial (Fig. 3). The flight com-
+ponent in the interaction design (Equation 1) explained the 
+highest total variation for most VIs in the RGB phenomic 
+dataset (Fig. 3). Results of interaction terms [(FG)(i×j) in 
+Equation 1], in which genetic materials (RILs) were consid-
+ered to have interactions across flights, were used to predict 
+temporal breeding values of RILs for each VI in RGB and 
+multispectral phenomic data. Correlations between individu-
+als VIs separately in drought and irrigated phenomic data and 
+flowering time and plant height were found to change tem-
+porally between –0.4 and +0.4 depending on flight dates. 
+Temporal RGB VIs had a greater magnitude of correlations in 
+flowering times from positive to negative than multispectral 
+VIs (Fig. 4).
+Phenomic data correlations showed that VIs belonging to 
+the same growth stages were usually correlated with flow-
+ering and plant height in a similar way (Fig. 4). Temporal data 
+of VIs had minimal multicollinearity in the phenomic dataset 
+(Fig. 5).
+Differences in flowering times and plant height 
+between different environments
+The genotype by environment model (Equation 3) revealed 
+differences in flowering times and plant heights across irri-
+gated and drought trials. Interaction variance components 
+between genotype (RILs) and environments explained ~8% 
+of total variation for DTA and DTS, and 19% for plant 
+height (Fig. 6). The changes in flowering times and plant 
+height across different environments were used as dependent 
+predicted variables to assess predictive ability of genomic, 
+phenomic, and combined data in applying four different pre-
+diction scenarios.
+Results of prediction scenarios
+In all prediction scenarios, models containing phenomic and 
+genomic data (M4, M5, M6, and M7) predicted the flowering 
+times and plant height numerically better, and generally sig-
+nificantly better, than models using only genomic data (M3) 
+(Fig. 7). This led to the highest increases in prediction ability 
+related to untested genotypes in observed and unobserved 
+environments (CV1 and CV00 scenarios). In scenario CV1, 
+flowering times (DTA and DTS) and plant height (PHT) were 
+predicted with ~0.58, 0.59, and ~0.42 prediction ability using 
+only genomic data (M3). However, prediction ability was fur-
+ther increased up to 0.75 to 0.56, respectively, for flowering 
+times and plant height using genomic and RGB phenomic 
+data together (M4) (Fig. 7). Similarly, prediction ability was 
+Fig. 3.  Stack bar plot shows the explained percentage variation by each component in the interaction design (Equation 1) for the RGB and multispectral 
+phenomic data in 2018. The left y-axis shows the explained percentage variation of each component in the model, the right y-axis show the R2 (filled 
+circles) and heritability (open triangles). The x-axes show the vegetation indices. (A) Results of the multispectral data for drought (above) and irrigated 
+(below) trials in 2018. (B) Results of the RGB phenomic data for drought (above) and irrigated (below) trials in 2018.
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+5314  |  Adak et al.
+increased up to 0.67 (DTA and DTS) and to 0.52 (PHT) for 
+flowering times and plant height using genomic and multi-
+spectral phenomic data together (M5) (Fig. 7). Slightly higher 
+prediction abilities in CV1 were achieved by including inter-
+actions for flowering times (M7; 0.77 for DTA and 0.76 for 
+DTS) and plant height (M7; 0.58) than without (M6) (Fig. 
+7). In scenario CV00, model (M6) with genomic and both 
+RGB and multispectral phenomic data predicted flowering 
+times and plant height consistently better than other mod-
+els (M1–M5). More importantly, M6 predicted the flowering 
+times and plant height 0.13 and 0.14 better than M3 using 
+only genomic data (Fig. 7).
+Genome-wide association results
+The number of significant SNPs discovered was greater in the 
+irrigated trial than in the drought trial using both RGB and 
+multispectral platforms; NDRBI and RCC (red chromatic 
+coordinate index) provided the highest number of SNPs in 
+RGB and multispectral FHTP, respectively (Fig. 8A). It was 
+found that the density of SNPs discovered was more intense 
+during flowering time in RGB phenomic data than at other 
+times; however, the density of SNPs discovered was found to 
+be close over time in the multispectral phenomic data (Fig. 8B). 
+Combining all phenotypic data across environments, temporal 
+multispectral VIs included 704 phenotypes in irrigated and 
+drought trials; and temporal RGB VIs included 560 pheno-
+types in irrigated and drought trials. These 2528 temporal×VI 
+phenomic measures resulted in significant associations of 2954 
+SNPs (Supplementary Table S2), of which 1394 SNPs were 
+unique to RGB FHTP, 442 SNPs were unique to multispec-
+tral FHTP, and 1117 SNPs were commonly discovered in both 
+FHTP (Fig. 8C). GWAS hits were represented as Manhattan 
+plots for DTA, DTS, and PHT (Fig. 9A), RGB (Fig. 9B), and 
+multispectral phenomic data (Fig. 9C; only SNPs above the 
+significance threshold are shown in Fig. 9B and C).
+Fig. 4.  Correlations as heatmap illustration between FHTP phenomic data and phenological traits (days to anthesis, DTA; days to silking, DTS; and 
+terminal plant height, PHT). Vegetation indices (on the y-axis) belonging to each time point (on the lower x-axis as days after planting) show the FHTP 
+phenomic data. DTA, DTS, and PHT phenological traits are on the upper x-axis. (A) Correlations with RGB and (B) correlations with multispectral 
+phenomic data. Pearson’s correlation was used.
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+Phenomic data-driven biological prediction  |  5315
+Revealing interplay between genetic and environmental 
+changes by FHTP
+Temporal blue index values belonging to between 61 and 82 
+DAPs led the discovery in GWAS (Supplementary Table S2; 
+Fig. 9) of an SNP (chr3: base pair 8 888 783) in the genic re-
+gion of the hsp18f candidate gene (chr3: base pairs 8 886 055 
+to 8 890 247), a member of the heat shock protein (HSP) 
+family in maize, in both irrigated and drought trials. It is inter-
+esting, however, that temporal blue index values belonging to 
+Fig. 5.  Correlation of temporal VIs using (A) multispectral phenomic data in the 2018 drought trial (2018_D) and (B) the irrigated trial (2018_I), (C) RGB 
+phenomic data in the 2018 drought trial (2018_D) and (D) the irrigated trial (2018_I). (E) GBS data.
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+5316  |  Adak et al.
+flight times before or after 61 or 82 DAPs, respectively, did not 
+discover this locus (Fig. 10A). The time period from 61 to 82 
+DAPs contains the DTA and DTS flowering, and the tempera-
+ture (min, average, and max) was highest (°C) during flowering 
+(Fig. 10A). Allelic variation of discovered loci in GWAS (chr3: 
+base pair 8 888783) linked to hsp18f caused statistically sig-
+nificant differences for plant height and flowering time across 
+RILs (Fig. 10B).
+Fig. 6.  Variance components of the genotype by environment model (Equation 3). (A) Explained percentage variation by each component in Equation 
+3 for flowering times (DTA and DTS) and terminal plant height (PHT). (B) Box plots of the best linear unbiased predictors of DTA, DTS, and PHT of 
+recombinant inbred lines belonging to their subpopulations across trials including the genotype by environment interaction component [(GE)(i×j) in Equation 
+3.
+Fig. 7.  Prediction ability of the seven models (M1–M7; Table 1) based on four prediction scenarios for three traits. CV00 and CV0 indicate prediction 
+scenarios of untested and tested genotypes in the unobserved environment, respectively. CV1 and CV2 indicate prediction scenarios of untested and 
+tested genotypes in observed environments, respectively. Prediction ability (y-axis) is the Pearson’s correlation between predicted and actual value of RILs 
+depending on the CVs.
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+Phenomic data-driven biological prediction  |  5317
+Temporal genomic prediction results
+Temporal genomic prediction by Equation 5 resulted in vari-
+ation in prediction ability of temporal values of NDRBI (Fig. 
+11A), and the flight effect (F) explained the highest variation, 
+while interactions between RILs and flights (g×F) were found 
+to be low (Fig. 11B). Temporal NDRBI values belonging to 
+time points between 75 and 99 DAPs were genomically pre-
+dicted to be greater than 27–71 DAPs in both trials (Fig. 11). 
+Temporal NDRBI values belonging to the drought trial had 
+a statistically greater genomic prediction ability than those 
+in the irrigated trial during earlier growth times (e.g. 27, 34, 
+56, 61, and 68 DAPs) (Fig. 11). Conversely, temporal NDRBI 
+values belonging to the irrigated trial had a statistically greater 
+Fig. 8.  (A) Number of SNPs discovered by using the temporal VIs belonging to RGB (left) and multispectral (right) FHTP phenomic data in 2018 drought 
+and irrigated trials by flight date. (B) Density plot of significant temporal SNPs across flight times based on RGB (top) and multispectral (bottom) FHTP as 
+well as drought (left) and irrigated (right) environments. (C) Venn diagram showing the unique and common SNPs discovered for RGB and multispectral 
+phenomic data across both trials.
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+5318  |  Adak et al.
+Fig. 9.  (A) Manhattan plots for flowering times and terminal plant height in drought and irrigated trials in 2018. The four loci highlighted are further 
+described in the Discussion. (B) Manhattan plots for multispectral phenomic data (88 VIs×8 flight times×2 two trials: 1408 phenotypes), with only 
+statistically significant SNPs shown. (C) Manhattan plots for RGB phenomic data (35 VIs×16 flight times×2 trials: 1120 phenotypes), with only statistically 
+significant SNPs shown. (D) LD regions around the four loci.
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+Phenomic data-driven biological prediction  |  5319
+Fig. 10.  (A) The left y-axis shows temporal effect size for using the blue index of GRMZM2G083810 (hsp18f) in drought and irrigated trials in 2018. 
+GRMZM2G083810 (hsp18f) was significant in GWAS using the blue index belonging to flights indicated by filled circles. The right y-axis provides 
+temperatures (°C) for the three dashed lines showing the highest, average, and lowest (from above to below) temperature belonging to each DAP on the 
+x-axis. Allelic segregation (adenine, A; and guanine, G) belonging to GRMZM2G083810 (hsp18f) differentiated haplotypes with A versus G in terms of 
+terminal plant height (B) and days to anthesis (C). Haplotype groups were compared using Wilcoxon test, and P-values are located above the boxplots.
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+5320  |  Adak et al.
+prediction ability than those in the drought trial during later 
+growth times (e.g. 90, 99, and 110 DAPs) (Fig. 11). Temporal 
+marker effects were found to be dynamic, contingent upon 
+NDRBI values belonging to flight times for each locus (Fig. 
+12). Effects of genomic markers could change from negative to 
+positive or from positive to negative (Fig. 12).
+Discussion
+Three GWAS hits of note were discovered for flowering traits 
+(DTA and DTS) in both irrigated and drought trials (Fig. 9A). 
+Two of those (flw_1 and flw_2) are in the fifth bin location in 
+chromosome 8; this bin location was previously described as 
+a hot spot for flowering times in maize (Koester et al., 1993; 
+Chardon et al., 2004; Salvi et al., 2007). Flw_1 (chr8: base pair 
+138 861 176) and adjacent loci with least –log(P) >4.48 were 
+discovered between base pairs 131 779 714 and 144 732 487 
+in chromosome 8 for flowering times (Fig. 9A; Supplementary 
+Table S2); this region contains the ZmRap2.7 AP2/EREB do-
+main transcription factor (chr8: base pairs 135 654 097–135 
+657 524) that is related to the vegetative to generative transition 
+(vgt1) gene controlling the flowering time in maize (Salvi et al., 
+2007). Flw_2 (chr8: base pair 124 457 676) and adjacent loci 
+Fig. 11.  (A) Temporal genomic prediction ability results for NDRBI vegetation index belonging to drought and irrigated trials based on the temporal 
+genomic prediction model (Equation 5). (B) Explained percentage variation by the components in Equation 5. Temporal genomic prediction abilities were 
+found to be significantly different between irrigated and drought trials at multiple time points based on Wilcoxon comparisons at the top of each flight 
+time. *, **, *** are significant at 0.05, 0.01, and 0.001, respectively; ns is not significant. The mean prediction ability was placed at the bottom of each bar 
+plot.
+Fig. 12.  Temporal additive marker effects for NDRBI across chromosomes (on x-axis) and flight dates as days after plantings (on y-axis; DAP) in irrigated 
+and drought trials in 2018. 
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+Phenomic data-driven biological prediction  |  5321
+with at least –log(P) >4.48 were discovered between base pairs 
+120 455 777 and 128 336 449 in chromosome 8 for flowering 
+times (Fig. 9A; Supplementary Table S2); this region contains 
+ZCN8 (chr8: base pairs 126 680 822–126 680 822) that pro-
+motes the transition from vegetative to generative phase encod-
+ing the florigen hormone in maize (Meng et al., 2011). Flw_3 
+(chr1: base pair 271 627 282) and adjacent loci with at least 
+–log(P) >4.48 were discovered between base pairs 271 627 282 
+and 280 637 432 in chromosome 1 (Fig. 9A; Supplementary 
+Table S2). This region contains Dwarf8 (D8) (chr1: base pairs 
+272 696 026–272 696 147) that impacts flowering time varia-
+tion as well as plant height in maize (Thornsberry et al., 2001). 
+Flw_2 and its adjacent loci with at least –log(P) >4.48 con-
+taining ZCN8 were discovered by various VIs belonging to 
+mostly 68 DAP in multispectral FHTP and 42 DAP in RGB 
+FHTP (Fig. 9A–C; Supplementary Table S2). Similarly, Flw_1 
+and its adjacent loci containing ZmRap2.7 were similarly dis-
+covered around flowering times by the VIs in multispectral 
+data belonging to 68 DAP (Fig. 9A–C; Supplementary Table 
+2). Furthermore, Flw_3 and its adjacent loci containing the 
+Dwarf8 gene were discovered by VIs in RGB FHTP belong-
+ing mostly to 82 DAP (Fig. 9A–C; Supplementary Table S2). 
+Overall, these results indicate that VIs derived from remotely 
+sensed images can capture known variation in flowering time 
+and discover flowering-related loci in association mapping, 
+in most cases even earlier than using actual flowering times. 
+Because temporal values of VIs are capable of detecting flow-
+ering time variation even before flowering, their early and 
+temporal assessment of complex traits could help decipher the 
+underlying causal biology and growth modeling (Anderson 
+et al., 2019).
+Any large phenomic dataset raises concerns about multi-
+collinearity, redundancy in predictors, and potential resulting 
+problems, especially model overfitting (Adak et al., 2021c). The 
+temporal phenomic and genomic data were subjected to corre-
+lation calculations to assess multicollinearity, both ranging from 
+–1 to 1 (Fig. 5). We found no evidence that multicollinearity 
+was any more present in temporal phenomic data than in ge-
+nomic data (Fig. 5), despite having a relatively sparse genomic 
+marker set compared with many modern studies. This suggests 
+that if the scientific community is not concerned about multi-
+collinearity in genomics, there should be even fewer concerns 
+in phenomics at this resolution. Regardless, modern machine 
+learning minimizes the major concerns around multicollinear-
+ity analysis (Montesinos López et al., 2022). Both the phenomic 
+and genomic measures remained unsaturated in this study, and 
+more measures (more features in phenomics, more SNPs in ge-
+nomics) could prove beneficial to improve predictions.
+Among phenomic data, the majority of observed multicol-
+linearity was between some of the many VIs calculated within 
+a given time point. However, it remained surprising how few 
+multicollinearity issues there were given the limited number 
+of spectral bands used to calculate VIs. This suggests that there 
+might be additional VIs that could be utilized to improve predic-
+tion. Essentially no additional resources are needed to calculate 
+additional VI measures within a UAV time point, so it is logical 
+to extract as many VI features as possible from each orthomosaic, 
+even if some multicollinearity is observed. More noteworthy was 
+the low multicollinearity across the relatively high temporal di-
+mension (multiple flight times near to each other). This suggests 
+that measurable and unique biological variation occurs within 
+very short windows of time. A higher temporal dimension and 
+phenomic features could be used to both improve prediction 
+and to better understand plant development. Various FHTP-
+related predictions reported inconsistency across different years 
+and environments (Rutkoski et al., 2016; Crain et al., 2018) and 
+this may stem from using low number of phenomic feature (VIs) 
+or low temporal flight resolution. Conducting additional UAV 
+flights requires resources proportional to the number of flights, 
+so finding the optimal number and times to collect data remains 
+an important open question in FHTP.
+Temporal phenomic data used as predictors in prediction 
+models generated promising prediction accuracies between 
+diverse trials. Phenomic tools have appeared to be as good or 
+better than genomic tools (Rincent et al., 2018; Adak et al., 
+2023a). Similarly, we have found that RGB phenomic data 
+predicted flowering times and plant height better than ge-
+nomic data (M1 versus M3 in CV1, Fig. 7). However, we also 
+found that combined data (phenomic plus genomic data) 
+with interactions with environment yielded greater predictive 
+ability than using genomic or phenomic data alone for flow-
+ering time and plant height in maize (M4 to M7 in Fig. 7). 
+Thus, temporal phenomic data add complementary predictive 
+information for flowering time and perhaps other complex 
+traits in maize.
+Temporal phenomic prediction of complex traits
+In previous studies, agronomic complex traits (e.g. flow-
+ering time and yield) were predicted from one or a limited 
+number of VIs belonging to one or a limited number of time 
+points and in one environment. For example, BNDVI (nor-
+malized difference between the blue and near infrared wave-
+length bands) was used as a predictor to predict grain yield 
+and flowering time in maize using the PLS regression; the 
+prediction accuracies (0.54–0.79) varied depending on the 
+temporal resolution (number of flights) (Wu et al., 2019). 
+Prediction accuracies for flowering times as well as grain 
+yield increased across diverse environments when a higher 
+number of VIs over multiple time points were jointly used 
+(Adak et al., 2021c, 2023a). Aguate et al. (2017) evaluated the 
+performance of 62 hyperspectral reflectance bands between 
+392 nm and 850 nm obtained at 300 m of flight elevation 
+in predicting maize yield across diverse scenarios (popula-
+tions, small plots, a farmers field, etc.) and over five time 
+points. They found that single time point-derived reflectance 
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+5322  |  Adak et al.
+bands predicted ~10–20% lower yield than using all five time 
+points, with their highest prediction accuracies reaching up 
+to ~0.49%. However, when comparing separate studies, dif-
+ferences in populations and environments measured cannot 
+be ignored. Considering resources needed, the present study 
+supports that high-resolution images derived from low-alti-
+tude RGB belonging to a higher number of time points can 
+provide better prediction than a higher altitude with more 
+spectral bands belonging to fewer time points (M1 versus 
+M2 in Fig. 7). Overall, both higher pixel resolution (~1 cm 
+of ground per pixel) that comes from lower flight elevations 
+or improved camera resolution, along with more frequent 
+flights, shows that there is potential for higher prediction 
+accuracies (>0.5) for grain yield in maize in this and previous 
+studies (Adak et al., 2021c, 2023a). Adding additional spectral 
+bands (e.g. hyperspectral) without compromising resolution 
+or flight frequency might add additional benefits.
+Genomic and phenomic prediction
+CV1 and CV00 demonstrated that the predictive abilities of 
+genome-wide makers decrease when it comes to predicting 
+unknown genotypes in known and unknown environments 
+(Fig. 7). This is in part because differences in flowering time 
+driven by different environments cannot easily be taken into 
+consideration by genome-wide markers, since genomic varia-
+tion remains fixed across all environments (Jarquín et al., 2014; 
+Cooper et al., 2016). It is therefore logical that results of CV1 
+showed that prediction of flowering times and plant height of 
+unknown genotypes in known environments was better pre-
+dicted with high-resolution RGB phenomic data than with 
+either genomic or multispectral phenomic data alone (M1 
+versus M2 and M3 in CV1; Fig. 7). Combining phenomic and 
+genomic data in prediction better captures the genomic and 
+environmental variation together, especially in the most chal-
+lenging scenario, namely the prediction of the performance of 
+untested genotype in untested environments (CV00).
+Boosting prediction ability by combining VIs with genomic 
+data has also been shown for yield in wheat and rye (Rutkoski 
+et al., 2016; Crain et al., 2018; Sun et al., 2019; Galán et al., 2020). 
+Our results support that instead of using single pre-selected VIs 
+(as is common) or limited reflectance bands, a higher number 
+of VIs may provide greater prediction ability and high consist-
+ency across environments without issues of additional cost or 
+multicollinearity. It is notable that this is a phenomic parallel to 
+a similar transition trend from GWAS and marker-assisted se-
+lection, targeting specific markers, to genomic prediction using 
+all markers.
+Integration of high-throughput phenomic data with 
+association mapping and genomic prediction
+Temporal plant height (aka, canopy height measurement; CHM) 
+captured by UAV has previously been used as phenotype data 
+in association mapping in maize hybrids (Adak et al., 2021b, 
+2023a) and inbreds (Wang et al., 2019; Anderson et al., 2020), 
+resulting in discovery of numerous temporal loci. Temporal 
+loci explain phenotypic variation of plant height differently 
+depending on the specific growth stage; this allows better bi-
+ological understanding of the loci segregating in a population 
+that control different stages of growth. Similar findings have 
+been shown in soybean using UAV-based phenotyping (Xavier 
+et al., 2017), in cotton using ground-based vehicle phenotyp-
+ing (Pauli et al., 2016), in wheat, rice, and triticale using trac-
+tor-based phenotyping (Würschum et al., 2014; Tanger et al., 
+2017; Lyra et al., 2020), as well as in maize and barley using 
+automated-based phenotyping under greenhouse conditions 
+(Muraya et al., 2017; Neumann et al., 2017; Zhang et al., 2017). 
+Temporal NDVIs (normalized difference vegetation indexes) 
+captured by UAVs have also been used in association studies in 
+cotton (Pauli et al., 2016), sorghum (Spindel et al., 2018), and 
+maize (Wang et al., 2021). However, the present study showed 
+that NDVI discovered among the lowest number of SNPs in 
+GWAS mapping (Fig. 8A). This reinforces that using only one 
+or a few temporal phenotypes of VIs or CHM will not broaden 
+the discovery of segregating temporal loci controlling plant 
+growth.
+It was intriguing that high-resolution RGB images discov-
+ered more loci during mid-growth, around flowering, than 
+other growth periods, while low-resolution multispectral 
+images discovered loci quite close during and after flowering 
+times (Fig. 8B). It seems likely that the high-resolution RGB 
+better captured the differences in plant development such as 
+leaf area index, and senescence with more plant pixels. It is 
+likely that multispectral images better distinguished tassel pix-
+els from leaf pixels during flowering than RGB. These results 
+showed that temporal phenotypes captured by multiple drone 
+surveys and sensors can discover previously unrevealed time-
+dependent associations between temporal traits and genome-
+wide polymorphisms (Fig. 9; Supplementary Table S2). Overall, 
+dissection of temporal plant growth is better if high time-
+dimensional phenotype data are used in association mapping 
+studies.
+Validation of a candidate gene using temporal 
+phenotype data
+A heat stress-related candidate gene, GRMZM2G083810 
+(hsp18f), was discovered using the temporal blue index phe-
+notype around only flowering time in both drought and 
+irrigated trials. Flowering time is among the most sensitive 
+periods to heat and drought stress (Barnabás et al., 2008), and 
+environmental heat stress probably led to the discovery of 
+GRMZM2G083810 (hsp18f) during flowering (Fig. 10A). This 
+finding demonstrates that temporal phenotypes can enhance 
+discovering opportunistic (oQTLs) (Wu et al., 2004). High-
+resolution HTFP images in particular can capture the specific 
+interplays between plant growth and biotic stresses during 
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+Phenomic data-driven biological prediction  |  5323
+certain growth periods. The GRMZM2G083810 (hsp18f) 
+candidate gene caused the RIL haplotypes to have statistically 
+different flowering as well as terminal plant height (Fig. 10B, 
+C) in both drought and irrigated trials. It is also surprising that 
+GRMZM2G083810 (hsp18f) was discovered for plant height 
+in the drought trial (Fig. 9A). This indicated that the allelic 
+variation associated with heat stress-related genes discovered in 
+early plant growth stages can impact phenotypes such as ter-
+minal plant height and flowering times (Fig. 9B, C). This result 
+is a proof of concept that UAVs can provide time-specific tem-
+poral phenotype data when plants are exposed to abiotic stress 
+factors during growth (e.g. heat stress during flowering times 
+in this study). Thus, relationships between plant abiotic stresses 
+and candidate genes related to these stresses can be studied in 
+greater biological detail with temporal data.
+NDRBI was chosen as a model VI to further evaluate, due 
+to having the highest ability of any RGB index to detect 
+SNPs in the GWAS (Fig. 8A) as well as the highest herita-
+bility, lowest error, and highest R2 (Fig. 3). Temporal genomic 
+prediction was applied to a temporal value of NDRBI de-
+rived from multiple UAV flights during growth to examine 
+whether the temporal phenotype is governed by genome-
+wide markers similarly or differently during growth and be-
+tween environments. The results showed that there was a large 
+variation in predicting temporal values of the NDRBI index 
+across time points as well as trials in maize (Fig. 11A). The 
+main reason is likely to be that the temporal values of the VI 
+are influenced by both genetic and environmental factors as 
+well as their interactions. This means that the relationship be-
+tween the genomic data and the phenotype of interest may 
+not be constant across different time periods due to changes 
+in environmental conditions. Because the flight component 
+explained the highest portion of explained variation in both 
+trials, that provides some evidence of the dynamic relationship 
+between temporal values of the VI and the environment (Fig. 
+11B). It was discovered that temporal NDRBI values belong-
+ing to time points between 75 and 99 DAPs were genomi-
+cally predicted to be greater than those at 27–71 DAPs in 
+both trials (Fig. 11). Among the most likely reasons is that 
+the overall range of measurable phenotypic variation is larger 
+in adult plants than in seedlings, as well as the range of her-
+itable variation attributable to the genetic component. The 
+resulting larger signal to measurement noise would be ex-
+pected to result in predictions performing better in more ma-
+ture plants. Another component might be that as the plant 
+matures, the many genetic, environmental, and interaction 
+factors that influence the phenotype of interest accumulate, 
+making accumulated differences between genotypes more 
+stable and predictable. In addition to these factors, the genetic 
+architecture of the trait of interest may also change as the plant 
+matures. For example, it is recognized that expression of cer-
+tain genes may be turned on or off at different growth stages, 
+thus the relative importance of different genetic markers for 
+these genes may shift as the trait is expressed differentially over 
+time (Zhou et al., 2019). Overall, these findings demonstrated 
+the variability in the prediction of temporal phenotype data 
+under diverse environments since genomic markers had dy-
+namic phenotypic effect sizes across different growth stages 
+and environments (Fig. 12). Repetitive UAV surveys can be 
+used to evaluate temporal prediction abilities of genome-wide 
+markers for specific time points and environments. This ap-
+proach advises using temporal values of agronomically im-
+portant VIs in genomic prediction to better understand the 
+predictability of genome-wide markers across times points 
+and environments beyond using only one-time terminal phe-
+notypic values (DTA, DTS, and PHT) as dependent variables.
+Conclusion
+FHTP incorporates novel technologies and applications such 
+as UAVs and imaging sensors that can screen segregating popu-
+lations with high precision, multiple measures, and a high time 
+dimension. These high dimensional data allowed prediction 
+and dissection of novel interactions between environment, 
+plant, and underlying segregating genomic mechanisms. First, 
+temporal phenomic spectral data belonging to multiple time 
+points throughout growth predicted complex phenological 
+traits (e.g. flowering time and plant height) across different 
+environments, as well as helping to understand the stability 
+of flowering. Second, temporal phenotype data were found 
+to better dissect time-dependent associations between plant 
+and abiotic stress. Finally, temporal reflectance bands led to the 
+discovery of many loci, including known genes and a heat-
+related candidate gene only when heat stress reached a peak 
+around flowering. Overall, temporal phenomic prediction and 
+dissecting time-dependent association between temporal phe-
+notype, genomic, and environmental data were demonstrated. 
+Integration of high-throughput phenomic data into plant 
+breeding and genomics will allow biological understanding to 
+select novel complex traits and dissect the plant–environment 
+interaction across plant development.
+Supplementary data
+The following supplementary data are available at JXB online.
+Table S1. Vegetation indices used in this study with formulas 
+and references.
+Table S2. Discovered loci by GWAS with their SNP name, 
+chromosome, genomic position, P-value, –log(P-value), minor 
+allele frequency, effect size, flight time as days after planting 
+time, vegetation index, phenotyping platform, trial, and candi-
+date gene information.
+Fig. S1. An orthomosaic belonging to a mid-growth stage of 
+the irrigated trial; experimental design was illustrated via the 
+orthomosaic. 
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+5324  |  Adak et al.
+Fig. S2. One replication of 5-fold with 25 replications is il-
+lustrated for four prediction scenarios (CV1, CV2, CV0, and 
+CV00). 
+Fig. S3. Linkage disequilibrium (LD) blocks of each chro-
+mosome were illustrated based on R2. 
+Acknowledgements
+The authors thank Dr Sorin Popescu, Dr Lonesome Malambo, and 
+Dr Dale Cope for their expert assistance in conducting UAV surveys 
+equipped with RGB and multispectral sensors; and Dr Don Conlee 
+who supplied the weather data containing 10 min increments from Texas 
+A&M Research Farm Mesonet weather station. For field data, we thank 
+David Rooney, Jacob Pekar, and Stephen Labar for their agronomic and 
+technical support, and graduate students and undergraduate/high school 
+employees for their hard work and effort maintaining fields and collecting 
+phenotypic data. We thank technical and in-kind support of AgReliant 
+Genetics LLC for genotyping recombinant inbred lines.
+Author contributions
+AA: conceptualization, data curation, formal analysis, investigation, meth-
+odology, original draft, review and editing (lead), supervision, validation, 
+visualization; MK: investigation, methodology, and review and editing 
+(supporting); SLA: investigation, validation, methodology, and review 
+and editing (supporting); S.C.M: conceptualization, funding acquisition, 
+methodology, project administration, supervision, resources, review and 
+editing (supporting); DJ: data curation, methodology, validation, and visu-
+alization (supporting); RKWW: conceptualization, methodology, and re-
+view and editing (supporting); MK: conceptualization, methodology, and 
+review and editing (supporting).
+Conflict of interest
+The authors have no conflicts to declare.
+Funding
+This project was supported by USDA-NIFA-AFRI project award nos 
+2020-68013-32371 and 2021-67013-33915, USDA–NIFA Hatch funds, 
+USDA-NIFA-Hatch, The Eugene Butler Endowed Chair, and Texas 
+A&M AgriLife Research.
+Data availability
+All data related to this manuscript are available in the Dryad Digital 
+Repository https://doi.org/10.5061/dryad.1vhhmgqwm; (Adak et al., 
+2023c).
+References
+Adak A, Anderson SL, Murray SC. 2023a. Pedigree–management–flight 
+interaction for temporal phenotype analysis and temporal phenomic predic-
+tion. The Plant Phenome Journal 6, e20057.
+Adak A, Conrad C, Chen Y, Wilde SC, Murray SC, Anderson S, 
+Subramanian NK. 2021a. Validation of functional polymorphisms affecting 
+maize plant height by Unoccupied Aerial Systems (UAS) discovers novel 
+temporal phenotypes. G3 Genes| Genomes| Genetics 11, jkab075.
+Adak A, Kang M, Anderson SL, Murray SC, Jarquin D, Wong RKW, 
+Katzfuß M. 2023c. Data from: Phenomic data-driven biological predic-
+tion of maize through field-based high-throughput phenotyping integra-
+tion with genomic data. Dryad Digital Repository. https://doi.org/10.5061/
+dryad.1vhhmgqwm 
+Adak A, Murray SC, Anderson SL. 2023b. Temporal phenomic predic-
+tions from unoccupied aerial systems can outperform genomic predictions. 
+G3 Genes| Genomes| Genetics 13, jkac294.
+Adak A, Murray SC, Anderson SL, Popescu SC, Malambo L, Romay 
+MC, de Leon N. 2021b. Unoccupied aerial systems discovered overlooked 
+loci capturing the variation of entire growing period in maize. The Plant 
+Genome 14, e20102.
+Adak A, Murray SC, Božinović S, Lindsey R, Nakasagga S, Chatterjee 
+S, Anderson SL, Wilde S. 2021c. Temporal vegetation indices and plant 
+height from remotely sensed imagery can predict grain yield and flowering 
+time breeding value in maize via machine learning regression. Remote 
+Sensing 13, 2141.
+Aguate FM, Trachsel S, González-Pérez L, Burgueño J, Crossa J, 
+Balzarini M, Gouache D, Bogard M, De los Campos G. 2017. Use of 
+hyperspectral image data outperforms vegetation indices in prediction of 
+maize yield. Crop Science 57, 2517–2524.
+Anderson SL II, Murray SC. 2020. R/UAStools::plotshpcreate: create 
+multi-polygon shapefiles for extraction of research plot scale agriculture re-
+mote sensing data. Frontiers in Plant Science 11, 511768.
+Anderson SL, Murray SC, Chen Y, Malambo L, Chang A, Popescu 
+S, Cope D, Jung J. 2020. Unoccupied aerial system enabled functional 
+modeling of maize height reveals dynamic expression of loci. Plant Direct 4, 
+e00223.
+Anderson SL, Murray SC, Malambo L, Ratcliff C, Popescu S, Cope D, 
+Chang A, Jung J, Thomasson JA. 2019. Prediction of maize grain yield 
+before maturity using improved temporal height estimates of unmanned 
+aerial systems. The Plant Phenome Journal 2, 1–15.
+Araus JL, Kefauver SC, Zaman-Allah M, Olsen MS, Cairns JE. 2018. 
+Translating high-throughput phenotyping into genetic gain. Trends in Plant 
+Science 23, 451–466.
+Bac-Molenaar JA, Vreugdenhil D, Granier C, Keurentjes JJ. 2015. 
+Genome-wide association mapping of growth dynamics detects time-spe-
+cific and general quantitative trait loci. Journal of Experimental Botany 66, 
+5567–5580.
+Barnabás B, Jäger K, Fehér A. 2008. The effect of drought and heat 
+stress on reproductive processes in cereals. Plant, Cell & Environment 31, 
+11–38.
+Bates D, Mächler M, Bolker B, Walker S. 2015. Fitting linear mixed-
+effects models using lme4. Journal of Statistical Software 67, 1–48.
+Bernardo R. 1994. Prediction of maize single‐cross performance using 
+RFLPs and information from related hybrids. Crop Science 34, 20–25.
+Bernardo R. 2021. Predictive breeding in maize during the last 90 years. 
+Crop Science 61, 2872–2881.
+Bernardo R, Yu J. 2007. Prospects for genomewide selection for quantita-
+tive traits in maize. Crop Science 47, 1082–1090.
+Boyle EA, Li YI, Pritchard JK. 2017. An expanded view of complex traits: 
+from polygenic to omnigenic. Cell 169, 1177–1186.
+Bradbury PJ, Zhang Z, Kroon DE, Casstevens TM, Ramdoss Y, 
+Buckler ES. 2007. TASSEL: software for association mapping of complex 
+traits in diverse samples. Bioinformatics 23, 2633–2635.
+Burgueño J, de los Campos G, Weigel K, Crossa J. 2012. Genomic 
+prediction of breeding values when modeling genotype × environment in-
+teraction using pedigree and dense molecular markers. Crop Science 52, 
+707–719.
+Campbell MT, Du Q, Liu K, Brien CJ, Berger B, Zhang C, Walia H. 
+2017. A comprehensive image-based phenomic analysis reveals the 
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+Phenomic data-driven biological prediction  |  5325
+complex genetic architecture of shoot growth dynamics in rice (Oryza 
+sativa). The Plant Genome 10, plantgenome2016.07.0064.
+Chardon F, Virlon B, Moreau L, Falque M, Joets J, Decousset L, 
+Murigneux A, Charcosset A. 2004. Genetic architecture of flowering time 
+in maize as inferred from quantitative trait loci meta-analysis and synteny 
+conservation with the rice genome. Genetics 168, 2169–2185.
+Chen D-H, Ronald P. 1999. A rapid DNA minipreparation method suitable 
+for AFLP and other PCR applications. Plant Molecular Biology Reporter 17, 
+53–57.
+Chen Y. 2016. High-density linkage map construction, mapping of agro-
+nomic traits in tropical maize (Zea mays L.) and validating SNPs control-
+ling maize grain yield and plant height in southern hybrid testcrosses. PhD, 
+Texas A&M University,
+Colasanti J, Muszynski M. 2009. The maize floral transition. In: Bennetzen 
+JL, Hake SC, eds. Handbook of maize: its biology. New York: Springer New 
+York, 41–55.
+Cooper M, Technow F, Messina C, Gho C, Totir LR. 2016. Use of crop 
+growth models with whole-genome prediction: application to a maize multi-
+environment trial. Crop Science 56, 2141–2156.
+Crain J, Mondal S, Rutkoski J, Singh RP, Poland J. 2018. Combining 
+high-throughput phenotyping and genomic information to increase predic-
+tion and selection accuracy in wheat breeding. The Plant Genome 11, 1–14.
+Crossa J, Pérez P, Hickey J, et al. 2014. Genomic prediction in CIMMYT 
+maize and wheat breeding programs. Heredity 112, 48–60.
+Desta ZA, Ortiz R. 2014. Genomic selection: genome-wide prediction in 
+plant improvement. Trends in Plant Science 19, 592–601.
+Endelman JB. 2011. Ridge regression and other kernels for genomic se-
+lection with R package rrBLUP. The Plant Genome 4, 250–255.
+Feldman MJ, Paul RE, Banan D, et al. 2017. Time dependent genetic 
+analysis links field and controlled environment phenotypes in the model C4 
+grass Setaria. PLoS Genetics 13, e1006841.
+Furbank RT, Tester M. 2011. Phenomics—technologies to relieve the 
+phenotyping bottleneck. Trends in Plant Science 16, 635–644.
+Galán RJ, Bernal-Vasquez A-M, Jebsen C, Piepho H-P, Thorwarth P, 
+Steffan P, Gordillo A, Miedaner T. 2020. Integration of genotypic, hyper-
+spectral, and phenotypic data to improve biomass yield prediction in hybrid 
+rye. Theoretical and Applied Genetics 133, 3001–3015.
+Heffner EL, Sorrells ME, Jannink J-L. 2009. Genomic selection for crop 
+improvement. Crop Science 49, 1–12.
+Heslot N, Jannink JL, Sorrells ME. 2015. Perspectives for genomic se-
+lection applications and research in plants. Crop Science 55, 1–12.
+Jarquín D, Crossa J, Lacaze X, et al. 2014. A reaction norm model for 
+genomic selection using high-dimensional genomic and environmental 
+data. Theoretical and Applied Genetics 127, 595–607.
+Koester RP, Sisco PH, Stuber CW. 1993. Identification of quantitative 
+trait loci controlling days to flowering and plant height in two near isogenic 
+lines of maize. Crop Science 33, 1209–1216. cropsci1993.0011183X0033
+00060020x.
+Krause MR, Mondal S, Crossa J, Singh RP, Pinto F, Haghighattalab 
+A, Shrestha S, Rutkoski J, Gore MA, Sorrells ME. 2020. Aerial high-
+throughput phenotyping enabling indirect selection for grain yield at the 
+early-generation seed-limited stages in breeding programs. Crop Science 
+60, 3096–3114. 
+Li J, Ji L. 2005. Adjusting multiple testing in multilocus analyses using the 
+eigenvalues of a correlation matrix. Heredity 95, 221–227.
+Lyra DH, Virlet N, Sadeghi-Tehran P, Hassall KL, Wingen LU, Orford S, 
+Griffiths S, Hawkesford MJ, Slavov GT. 2020. Functional QTL mapping 
+and genomic prediction of canopy height in wheat measured using a robotic 
+field phenotyping platform. Journal of Experimental Botany 71, 1885–1898.
+Matias FI, Caraza‐Harter MV, Endelman JB. 2020. FIELDimageR: an 
+R package to analyze orthomosaic images from agricultural field trials. The 
+Plant Phenome Journal 3, e20005.
+Mayfield K, Betrán FJ, Isakeit T, Odvody G, Murray SC, Rooney WL, 
+Landivar JC. 2012. Registration of maize germplasm lines Tx736, Tx739, 
+and Tx740 for reducing preharvest aflatoxin accumulation. Journal of Plant 
+Registrations 6, 88–94.
+Meng X, Muszynski MG, Danilevskaya ON. 2011. The FT-like ZCN8 
+gene functions as a floral activator and is involved in photoperiod sensitivity 
+in maize. The Plant Cell 23, 942–960.
+Meuwissen TH, Hayes BJ, Goddard M. 2001. Prediction of total ge-
+netic value using genome-wide dense marker maps.  Genetics  157, 
+1819–1829.
+Money D, Gardner K, Migicovsky Z, Schwaninger H, Zhong G-Y, 
+Myles S. 2015. LinkImpute: fast and accurate genotype imputation for non-
+model organisms. G3 Genes| Genomes| Genetics 5, 2383–2390.
+Montesinos López OA, Montesinos López A, Crossa J. 2022. 
+Overfitting, model tuning, and evaluation of prediction performance. 
+Multivariate statistical machine learning methods for genomic prediction. 
+Cham: Springer International Publishing, 109–139.
+Muraya MM, Chu J, Zhao Y, Junker A, Klukas C, Reif JC, Altmann 
+T. 2017. Genetic variation of growth dynamics in maize (Zea mays L.) re-
+vealed through automated non‐invasive phenotyping. The Plant Journal 89, 
+366–380.
+Neumann K, Zhao Y, Chu J, Keilwagen J, Reif JC, Kilian B, Graner A. 
+2017. Genetic architecture and temporal patterns of biomass accumulation 
+in spring barley revealed by image analysis. BMC Plant Biology 17, 137.
+Pauli D, Chapman SC, Bart R, Topp CN, Lawrence-Dill CJ, Poland J, 
+Gore MA. 2016. The quest for understanding phenotypic variation via inte-
+grated approaches in the field environment. Plant Physiology 172, 622–634.
+Pérez P, de los Campos G. 2014. Genome-wide regression and predic-
+tion with the BGLR statistical package. Genetics 198, 483–495.
+Rife TW, Poland JA. 2014. Field book: an open-source application for field 
+data collection on android. Crop Science 54, 1624–1627.
+Rincent R, Charpentier J-P, Faivre-Rampant P, Paux E, Le Gouis J, 
+Bastien C, Segura V. 2018. Phenomic selection is a low-cost and high-
+throughput method based on indirect predictions: proof of concept on 
+wheat and poplar. G3: Genes, Genomes, Genetics 8, 3961–3972.
+Rodene E, Xu G, Palali Delen S, Zhao X, Smith C, Ge Y, Schnable 
+J, Yang J. 2022. A UAV-based high-throughput phenotyping approach to 
+assess time-series nitrogen responses and identify trait-associated genetic 
+components in maize. The Plant Phenome Journal 5, e20030.
+Rutkoski J, Poland J, Mondal S, Autrique E, Pérez LG, Crossa J, 
+Reynolds M, Singh R. 2016. Canopy temperature and vegetation indices 
+from high-throughput phenotyping improve accuracy of pedigree and ge-
+nomic selection for grain yield in wheat. G3: Genes, Genomes, Genetics 6, 
+2799–2808.
+Salvi S, Sponza G, Morgante M, et al. 2007. Conserved noncoding ge-
+nomic sequences associated with a flowering-time quantitative trait locus 
+in maize. Proceedings of the National Academy of Sciences, USA 104, 
+11376–11381.
+Sandhu KS, Mihalyov PD, Lewien MJ, Pumphrey MO, Carter AH. 2021. 
+Combining genomic and phenomic information for predicting grain protein 
+content and grain yield in spring wheat. Frontiers in Plant Science 12, 170.
+Schnable PS, Ware D, Fulton RS, et al. 2009. The B73 maize genome: 
+complexity, diversity, and dynamics. Science 326, 1112–1115.
+Shi Y, Thomasson JA, Murray SC, et al. 2016. Unmanned aerial vehicles 
+for high-throughput phenotyping and agronomic research. PLoS One 11, 
+e0159781.
+Shin J-H, Blay S, McNeney B, Graham J. 2006. LDheatmap: an R func-
+tion for graphical display of pairwise linkage disequilibria between single nu-
+cleotide polymorphisms. Journal of Statistical Software 16, 1–8.
+Spindel JE, Dahlberg J, Colgan M, Hollingsworth J, Sievert J, 
+Staggenborg SH, Hutmacher R, Jansson C, Vogel JP. 2018. 
+Association mapping by aerial drone reveals 213 genetic associations for 
+Sorghum bicolor biomass traits under drought. BMC Genomics 19, 679.
+Sun J, Poland JA, Mondal S, et al. 2019. High-throughput phenotyping 
+platforms enhance genomic selection for wheat grain yield across popu-
+lations and cycles in early stage. Theoretical and Applied Genetics 132, 
+1705–1720.
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026
+5326  |  Adak et al.
+Tanger P, Klassen S, Mojica JP, et al. 2017. Field-based high throughput 
+phenotyping rapidly identifies genomic regions controlling yield components 
+in rice. Scientific Reports 7, 42839.
+Thornsberry JM, Goodman MM, Doebley J, Kresovich S, Nielsen D, 
+Buckler ES. 2001. Dwarf8 polymorphisms associate with variation in flow-
+ering time. Nature Genetics 28, 286–289.
+Tiezzi F, de Los Campos G, Gaddis KP, Maltecca C. 2017. Genotype by 
+environment (climate) interaction improves genomic prediction for produc-
+tion traits in US Holstein cattle. Journal of Dairy Science 100, 2042–2056.
+VanRaden PM. 2008. Efficient methods to compute genomic predictions. 
+Journal of Dairy Science 91, 4414–4423.
+Wang J, Li X, Guo T, Dzievit MJ, Yu X, Liu P, Price KP, Yu J. 2021. 
+Genetic dissection of seasonal vegetation index dynamics in maize through 
+aerial based high‐throughput phenotyping. The Plant Genome 14, e20155.
+Wang J, Zhang Z. 2021. GAPIT Version 3: boosting power and accu-
+racy for genomic association and prediction. Genomics, Proteomics & 
+Bioinformatics 19, 629–640.
+Wang X, Zhang R, Song W, et al. 2019. Dynamic plant height QTL re-
+vealed in maize through remote sensing phenotyping using a high-through-
+put unmanned aerial vehicle (UAV). Scientific Reports 9, 3458.
+Ward B, Brien C, Oakey H, et al. 2019. High‐throughput 3D modelling to 
+dissect the genetic control of leaf elongation in barley (Hordeum vulgare). 
+The Plant Journal 98, 555–570.
+Whittaker JC, Thompson R, Denham MC. 2000. Marker-assisted selec-
+tion using ridge regression. Genetics Research 75, 249–252.
+Windhausen VS, Atlin GN, Hickey JM, et al. 2012. Effectiveness of 
+genomic prediction of maize hybrid performance in different breeding 
+populations and environments.  G3: Genes| Genomes| Genetics  211, 
+1427–1436.
+Wu G, Miller ND, De Leon N, Kaeppler SM, Spalding EP. 2019. 
+Predicting Zea mays flowering time, yield, and kernel dimensions by analyz-
+ing aerial images. Frontiers in Plant Science 10, 1251.
+Wu R, Wang Z, Zhao W, Cheverud JM. 2004. A mechanistic model for 
+genetic machinery of ontogenetic growth. Genetics 168, 2383–2394.
+Würschum T, Liu W, Busemeyer L, Tucker MR, Reif JC, Weissmann 
+EA, Hahn V, Ruckelshausen A, Maurer HP. 2014. Mapping dynamic QTL 
+for plant height in triticale. BMC Genetics 15, 59–58.
+Xavier A, Hall B, Hearst AA, Cherkauer KA, Rainey KM. 2017. Genetic 
+architecture of phenomic-enabled canopy coverage in Glycine max. 
+Genetics 206, 1081–1089.
+Zhang X, Huang C, Wu D, et al. 2017. High-throughput phenotyping and 
+QTL mapping reveals the genetic architecture of maize plant growth. Plant 
+Physiology 173, 1554–1564.
+Zhao Y, Gowda M, Liu W, Würschum T, Maurer HP, Longin FH, 
+Ranc N, Reif JC. 2012. Accuracy of genomic selection in European 
+maize elite breeding populations. Theoretical and Applied Genetics 124, 
+769–776.
+Zhou P, Hirsch CN, Briggs SP, Springer NM. 2019. Dynamic patterns of 
+gene expression additivity and regulatory variation throughout maize devel-
+opment. Molecular Plant 12, 410–425.
+Downloaded from academic.oup.com/jxb/article/74/17/5307/7190136 by Shanghai Jiao Tong University user on 13 September 2026

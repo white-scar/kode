@@ -1,0 +1,9 @@
+﻿species,mode,meta,r_含t0,r_剔t0,nrmse_剔t0
+maize,full,[GRM+TP1],0.5209,0.5009,0.2347
+maize,tp1,[TP1]   (去GRM),0.4846,0.4631,0.2325
+maize,grm,[GRM]   (去TP1),0.4606,0.4381,0.2720
+maize,pad,[GRM+0·TP1] (TP1置零),0.4558,0.4331,0.2778
+arab,full,[GRM+TP1],0.4948,0.4559,0.2495
+arab,tp1,[TP1]   (去GRM),0.4908,0.4517,0.2426
+arab,grm,[GRM]   (去TP1),0.4320,0.3883,0.3317
+arab,pad,[GRM+0·TP1] (TP1置零),0.4381,0.3948,0.3153

@@ -1,0 +1,10 @@
+{
+  "best_grm_dim": 50,
+  "best_rank": 1,
+  "heritability": {
+    "h2_HE_mean": 0.6657070336239985,
+    "h2_HE_std": 0.03982045572766344,
+    "R2_adj_mean": 0.4952970305224046,
+    "corr_lam_initSize_mean": -0.6220158856852555
+  }
+}

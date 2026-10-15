@@ -1,0 +1,13 @@
+[DEVICE=cuda] dataset=arab P=45 T=14 n_test=5 foldsets=[1, 4] epochs=800
+  foldset 1 rec_t1: tail mean PCC = 0.2500
+  foldset 1 rec_tk: tail mean PCC = 0.6505
+  foldset 1 iter: tail mean PCC = 0.8005
+  foldset 4 rec_t1: tail mean PCC = 0.3043
+  foldset 4 rec_tk: tail mean PCC = 0.6614
+  foldset 4 iter: tail mean PCC = 0.8064
+=== summary (mean over foldsets x tail timepoints) ===
+scenario
+iter      0.803431
+rec_t1    0.277152
+rec_tk    0.655931
+saved -> /data/fandata/dashuaige/outputs/reproduce/knode_extrap_maize_arab/knode_extrap_arab_f1_4_nt5.csv

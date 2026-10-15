@@ -1,0 +1,32 @@
+Device: cuda  seeds=[42, 1234]  N=330 T=25 P=50  top_frac=0.1
+
+[阶段① 真值持续优质 full (top10%, 全面板 n=330)]
+  与初始点top重合: 0.314   与终点top重合: 0.576
+  被终点漏掉(质量株但非终点top): 0.424   被初始点漏掉: 0.686
+
+[阶段① 真值持续优质 mid (top10%, 全面板 n=330)]
+  与初始点top重合: 0.295   与终点top重合: 0.547
+  被终点漏掉(质量株但非终点top): 0.453   被初始点漏掉: 0.705
+  [ODE_GRM] 已训练并预测
+  [ODE_noGRM] 已训练并预测
+  [LSTM] 已训练并预测
+  [Transformer] 已训练并预测
+  [Static_TP1] overlap@10%=0.273 响应%=0.3  找回被终点漏掉=0.232
+  [Static_final_oracle] overlap@10%=0.543 响应%=0.7  找回被终点漏掉=0.000
+  [Static_final_pred] overlap@10%=0.313 响应%=0.3  找回被终点漏掉=0.189
+  [ODE_GRM] overlap@10%=0.340 响应%=0.4  找回被终点漏掉=0.283
+  [ODE_noGRM] overlap@10%=0.280 响应%=0.3  找回被终点漏掉=0.248
+  [LSTM] overlap@10%=0.297 响应%=0.3  找回被终点漏掉=0.259
+  [Transformer] overlap@10%=0.360 响应%=0.4  找回被终点漏掉=0.252
+
+[对比表: out-of-sample 测试折, 真值=持续优质(mid, 排除首尾)]
+  方法                      重合@10%     响应%      找回终点漏     找回TP1漏
+  Static_TP1               0.273    0.3      0.232      0.000
+  Static_final_oracle      0.543    0.7      0.000      0.545
+  Static_final_pred        0.313    0.3      0.189      0.267
+  ODE_GRM                  0.340    0.4      0.283      0.261
+  ODE_noGRM                0.280    0.3      0.248      0.084
+  LSTM                     0.297    0.3      0.259      0.245
+  Transformer              0.360    0.4      0.252      0.281
+
+Saved: knode_staygreen_selection.json

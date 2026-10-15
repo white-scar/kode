@@ -1,0 +1,43 @@
+{
+  "dataset": "rgb",
+  "environment": "drought",
+  "N": 509,
+  "T": 12,
+  "P": 19,
+  "DAS": [
+    42.0,
+    56.0,
+    61.0,
+    64.0,
+    68.0,
+    71.0,
+    75.0,
+    78.0,
+    82.0,
+    84.0,
+    90.0,
+    99.0
+  ],
+  "trait_names": [
+    "BCC",
+    "BRVI",
+    "COM1",
+    "COM2",
+    "EBI",
+    "ExGR",
+    "ExR",
+    "G-B",
+    "G-R",
+    "GCC",
+    "MExG",
+    "MRCC",
+    "NRMBI",
+    "R-B",
+    "R/B",
+    "RCC",
+    "RGBVI",
+    "TGI",
+    "VARI"
+  ],
+  "cv_foldsets": 10
+}

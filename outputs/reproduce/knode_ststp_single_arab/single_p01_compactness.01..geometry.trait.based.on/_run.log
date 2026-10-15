@@ -1,0 +1,15 @@
+device=cuda mode=single fams=['ststp'] iters=[0, 1, 2] epochs=1000 seed=42
+data: N=382 T=14 P_all=45 times=[8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0]
+mode=single  P=1  性状=['compactness.01..geometry.trait.based.on.visible.light.top.view.']
+[iter 0] mode=single P=1 train=320 test=62 | inner-5 ensemble | epochs=1000
+  [iter 0] ststp           done  (6s)
+[iter 1] mode=single P=1 train=311 test=71 | inner-5 ensemble | epochs=1000
+  [iter 1] ststp           done  (6s)
+[iter 2] mode=single P=1 train=324 test=58 | inner-5 ensemble | epochs=1000
+  [iter 2] ststp           done  (6s)
+
+=== overall ===
+  fam      pcc      mse     RMSE       R2     NMSE    NRMSE  n_cells  n_iter
+ststp 0.408309 0.002766 0.047161 0.168582 0.831418 0.226661       39       3
+
+outputs -> /data/fandata/dashuaige/outputs/reproduce/knode_ststp_single_arab/single_p01_compactness.01..geometry.trait.based.on

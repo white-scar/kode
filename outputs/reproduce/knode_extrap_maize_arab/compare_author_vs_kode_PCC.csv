@@ -1,0 +1,11 @@
+species,scenario,window,author_tp1_pcc,kode_pcc,delta_pcc,author_method,status
+maize,rec_tk,外推5点,0.47349176887959477,0.8312424367421375,0.3577506678625427,tp1,OK
+maize,iter,外推5点,0.4884910014179952,0.9205790520363892,0.43208805061839406,tp1,OK
+maize,rec_t1,末5点 t21-t25,0.33574928358446904,0.3922757280409287,0.05652644445645966,tp1,OK
+maize,rec_t1_full,全轨迹 t2-t25,0.44995183662528354,,,tp1,Kode 缺(集成版)
+maize,iter_t1,末5点 t21-t25,0.5115275545247517,,,tp1,Kode 缺(t1+teacher forcing 口径)
+arab,rec_tk,外推5点,0.3517695420912912,0.6184261624776022,0.266656620386311,tp1,OK
+arab,iter,外推5点,0.39203619054493977,0.7807124015600531,0.3886762110151133,tp1,OK
+arab,rec_t1,末5点 t21-t25,,0.3141329915870918,,tp1,作者缺(arab 无 t1 版)
+arab,rec_t1_full,全轨迹 t2-t25,,,,tp1,Kode 缺(集成版)
+arab,iter_t1,末5点 t21-t25,,,,tp1,Kode 缺(t1+teacher forcing 口径)

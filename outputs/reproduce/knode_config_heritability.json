@@ -1,0 +1,76 @@
+{
+  "grm_dim": 50,
+  "rank": 1,
+  "seeds": [
+    42,
+    1234,
+    2024,
+    2025
+  ],
+  "h2_HE_mean": 0.6657070336239985,
+  "h2_HE_std": 0.03982045572766344,
+  "R2_adj_mean": 0.4952970305224046,
+  "R2_adj_std": 0.030028915415125354,
+  "corr_lam_logInitSize_mean": -0.28139585028096775,
+  "corr_lam_logInitSize_std": 0.02849366785016117,
+  "corr_lam_normInitSize_sens_mean": -0.6220158856852555,
+  "size_definition": "\u9884\u6ce8\u518c: log \u603b\u521d\u59cb\u5c3a\u5bf8 log1p(mean_pheno@TP1); \u5f52\u4e00\u5316\u5747\u503c\u7248\u4f5c\u5b9a\u4e49\u654f\u611f\u6027(\u8865\u5145\u6750\u6599)",
+  "positive_controls": {
+    "h2_PC_scores": {
+      "PC1": 2.44,
+      "PC2": 2.277,
+      "PC3": 2.145,
+      "PC4": 2.131,
+      "PC5": 2.031
+    },
+    "h2_random_linear_score_mean": 1.4485152707008888,
+    "h2_random_linear_score_std": 0.11507470528400522,
+    "note": "\u4efb\u610f GRM \u5149\u6ed1\u51fd\u6570 (PC \u5f97\u5206/\u968f\u673a\u7ebf\u6027\u9057\u4f20\u8bc4\u5206) \u7684 HE h\u00b2 \u57fa\u7ebf; \u03bb \u7684 h\u00b2 \u82e5\u4e0d\u9ad8\u51fa\u6b64\u57fa\u7ebf, \u5219\"\u53ef\u9057\u4f20\"\u672c\u8eab\u65e0\u533a\u5206\u6027 \u2192 \u03bb \u53ea\u80fd\u79f0\u4e3a\u9057\u4f20\u8bc4\u5206, \u533a\u5206\u6027\u9700\u9760\u8868\u578b\u951a (Schur-DMD \u03bb_ph, \u89c1 knode_biology_genotypes.py \u9636\u6bb5 D)"
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "h2_HE": 0.6921352650993989,
+      "R2_grm_pca": 0.58558189868927,
+      "R2_adj": 0.5113134217518632,
+      "corr_lam_logInitSize": -0.25779893894385664,
+      "corr_lam_normInitSize_sens": -0.5757391695639213,
+      "lam_mean": -5.086852073669434,
+      "lam_std": 0.5812480449676514,
+      "neg_frac": 1.0
+    },
+    {
+      "seed": 1234,
+      "h2_HE": 0.6633059975928663,
+      "R2_grm_pca": 0.5754748582839966,
+      "R2_adj": 0.49939508378292075,
+      "corr_lam_logInitSize": -0.2796567863910379,
+      "corr_lam_normInitSize_sens": -0.6309875558588546,
+      "lam_mean": -5.073222637176514,
+      "lam_std": 0.5803524851799011,
+      "neg_frac": 1.0
+    },
+    {
+      "seed": 2024,
+      "h2_HE": 0.601973974748269,
+      "R2_grm_pca": 0.5299158096313477,
+      "R2_adj": 0.44567133107065726,
+      "corr_lam_logInitSize": -0.3284641434309502,
+      "corr_lam_normInitSize_sens": -0.6670290992200839,
+      "lam_mean": -5.060446262359619,
+      "lam_std": 0.6147506833076477,
+      "neg_frac": 1.0
+    },
+    {
+      "seed": 2025,
+      "h2_HE": 0.70541289705546,
+      "R2_grm_pca": 0.5970258712768555,
+      "R2_adj": 0.5248082854841772,
+      "corr_lam_logInitSize": -0.2596635323580262,
+      "corr_lam_normInitSize_sens": -0.6143077180981621,
+      "lam_mean": -5.064146995544434,
+      "lam_std": 0.5869607329368591,
+      "neg_frac": 1.0
+    }
+  ]
+}

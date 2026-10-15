@@ -1,0 +1,37 @@
+[DEVICE=cuda] dataset=maize P=50 T=25 n_test=5 grm_dim=50 foldsets=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] epochs=800
+  foldset 1 rec_t1: tail mean PCC = 0.3449
+  foldset 1 rec_tk: tail mean PCC = 0.8432
+  foldset 1 iter: tail mean PCC = 0.9157
+  foldset 2 rec_t1: tail mean PCC = 0.4652
+  foldset 2 rec_tk: tail mean PCC = 0.8383
+  foldset 2 iter: tail mean PCC = 0.9250
+  foldset 3 rec_t1: tail mean PCC = 0.4072
+  foldset 3 rec_tk: tail mean PCC = 0.8351
+  foldset 3 iter: tail mean PCC = 0.9184
+  foldset 4 rec_t1: tail mean PCC = 0.4167
+  foldset 4 rec_tk: tail mean PCC = 0.8463
+  foldset 4 iter: tail mean PCC = 0.9221
+  foldset 5 rec_t1: tail mean PCC = 0.3969
+  foldset 5 rec_tk: tail mean PCC = 0.8354
+  foldset 5 iter: tail mean PCC = 0.9171
+  foldset 6 rec_t1: tail mean PCC = 0.3858
+  foldset 6 rec_tk: tail mean PCC = 0.8537
+  foldset 6 iter: tail mean PCC = 0.9262
+  foldset 7 rec_t1: tail mean PCC = 0.3666
+  foldset 7 rec_tk: tail mean PCC = 0.8366
+  foldset 7 iter: tail mean PCC = 0.9182
+  foldset 8 rec_t1: tail mean PCC = 0.3702
+  foldset 8 rec_tk: tail mean PCC = 0.8564
+  foldset 8 iter: tail mean PCC = 0.9302
+  foldset 9 rec_t1: tail mean PCC = 0.4119
+  foldset 9 rec_tk: tail mean PCC = 0.8342
+  foldset 9 iter: tail mean PCC = 0.9175
+  foldset 10 rec_t1: tail mean PCC = 0.3506
+  foldset 10 rec_tk: tail mean PCC = 0.8346
+  foldset 10 iter: tail mean PCC = 0.9194
+=== summary (mean over foldsets x tail timepoints) ===
+scenario
+iter      0.9210
+rec_t1    0.3916
+rec_tk    0.8414
+saved -> D:\pythonproject\knode\outputs\reproduce\knode_extrap_maize_arab\knode_extrap_maize__msechk.csv

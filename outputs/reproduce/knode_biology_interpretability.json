@@ -1,0 +1,210 @@
+[
+  {
+    "rank": 1,
+    "val_pcc": 0.4564505636692047,
+    "test_pcc": 0.4819317817687988,
+    "lambda1_mean": -4.571002960205078,
+    "lambda1_std": 0.43158817291259766,
+    "lambda1_min": -5.849665641784668,
+    "lambda1_max": -3.0331575870513916,
+    "dir1_cos_mean": 0.9935591220855713,
+    "dir1_cos_std": 0.005410374142229557,
+    "dir1_PC1_cos": 0.2760513047753743,
+    "dir1_PC2_cos": 0.8979049325125269,
+    "dir1_PC3_cos": 0.07032601962601603,
+    "dir1_geometry_cos": 0.32615628466010094,
+    "dir1_top_loadings": [
+      {
+        "trait": "side.geometry.vis.leaf.curvature.avg",
+        "loading": 0.2946731150150299
+      },
+      {
+        "trait": "top.intensity.vis.hsv.normalized.h.histogram.bin.13.153_165",
+        "loading": 0.28301185369491577
+      },
+      {
+        "trait": "top.intensity.vis.hsv.h.histogram.v_avg.bin.04.038_051",
+        "loading": 0.27219343185424805
+      },
+      {
+        "trait": "side.texture.vis.lab.l.std",
+        "loading": -0.24731968343257904
+      },
+      {
+        "trait": "top.intensity.vis.hsv.s.histogram.v_avg.bin.05.051_063",
+        "loading": 0.21988247334957123
+      },
+      {
+        "trait": "side.texture.vis.rgb.r.std",
+        "loading": -0.21689222753047943
+      },
+      {
+        "trait": "top.texture.fluo.rgb.g.std",
+        "loading": -0.21603283286094666
+      },
+      {
+        "trait": "top.intensity.fluo.hsv.v.skewness",
+        "loading": -0.2127854824066162
+      }
+    ]
+  },
+  {
+    "rank": 2,
+    "val_pcc": 0.4419326543807983,
+    "test_pcc": 0.4808061122894287,
+    "lambda1_mean": -4.122531890869141,
+    "lambda1_std": 0.44528913497924805,
+    "lambda1_min": -5.6281046867370605,
+    "lambda1_max": -2.974330186843872,
+    "lambda2_mean": -4.122531890869141,
+    "lambda2_std": 0.44528913497924805,
+    "dir1_cos_mean": 0.9212228655815125,
+    "dir1_cos_std": 0.35137996077537537,
+    "dir2_cos_mean": 0.16209980845451355,
+    "dir2_cos_std": 0.9327498078346252,
+    "dir1_PC1_cos": 0.4672956202218256,
+    "dir1_PC2_cos": 0.42380694273155683,
+    "dir1_PC3_cos": 0.14236611546959968,
+    "dir1_geometry_cos": 0.04197725175254163,
+    "dir1_top_loadings": [
+      {
+        "trait": "top.intensity.vis.hsv.h.histogram.v_avg.bin.04.038_051",
+        "loading": 0.3843390643596649
+      },
+      {
+        "trait": "side.texture.vis.lab.l.std",
+        "loading": -0.2662259340286255
+      },
+      {
+        "trait": "top.intensity.vis.hsv.s.stddev",
+        "loading": -0.2658689320087433
+      },
+      {
+        "trait": "side.texture.vis.rgb.r.std",
+        "loading": -0.2637118399143219
+      },
+      {
+        "trait": "top.texture.fluo.hsv.s.mean",
+        "loading": -0.26030805706977844
+      },
+      {
+        "trait": "top.intensity.vis.hsv.h.histogram.s_avg.bin.07.076_089",
+        "loading": 0.24434462189674377
+      },
+      {
+        "trait": "top.intensity.fluo.hsv.v.skewness",
+        "loading": -0.23815900087356567
+      },
+      {
+        "trait": "top.intensity.vis.hsv.s.histogram.v_avg.bin.06.063_076",
+        "loading": 0.22857743501663208
+      }
+    ]
+  },
+  {
+    "rank": 3,
+    "val_pcc": 0.4260577142238617,
+    "test_pcc": 0.41622631549835204,
+    "lambda1_mean": -0.26746609807014465,
+    "lambda1_std": 0.347614586353302,
+    "lambda1_min": -1.175755500793457,
+    "lambda1_max": 0.8375956416130066,
+    "lambda2_mean": -4.782163619995117,
+    "lambda2_std": 0.6126506328582764,
+    "dir1_cos_mean": 0.35875946283340454,
+    "dir1_cos_std": 0.9035176634788513,
+    "dir2_cos_mean": 0.17050430178642273,
+    "dir2_cos_std": 0.9123619198799133,
+    "dir1_PC1_cos": 0.43516575960048887,
+    "dir1_PC2_cos": 0.24790994621722995,
+    "dir1_PC3_cos": 0.14597185665160928,
+    "dir1_geometry_cos": 0.03007827140390873,
+    "dir1_top_loadings": [
+      {
+        "trait": "top.intensity.vis.hsv.h.histogram.v_avg.bin.04.038_051",
+        "loading": -0.3854210078716278
+      },
+      {
+        "trait": "top.intensity.vis.hsv.s.stddev",
+        "loading": 0.3137148320674896
+      },
+      {
+        "trait": "side.texture.vis.rgb.r.std",
+        "loading": 0.2808985114097595
+      },
+      {
+        "trait": "side.texture.vis.lab.l.std",
+        "loading": 0.2672020494937897
+      },
+      {
+        "trait": "top.texture.fluo.hsv.s.mean",
+        "loading": 0.2636320888996124
+      },
+      {
+        "trait": "top.intensity.vis.hsv.h.histogram.s_avg.bin.07.076_089",
+        "loading": -0.2270698845386505
+      },
+      {
+        "trait": "top.intensity.vis.hsv.s.histogram.v_avg.bin.06.063_076",
+        "loading": -0.22698238492012024
+      },
+      {
+        "trait": "top.intensity.vis.hsv.h.histogram.s_avg.bin.04.038_051",
+        "loading": 0.21438175439834595
+      }
+    ]
+  },
+  {
+    "rank": 5,
+    "val_pcc": 0.4140125274658203,
+    "test_pcc": 0.42574822306633,
+    "lambda1_mean": 0.028250085189938545,
+    "lambda1_std": 0.12072771787643433,
+    "lambda1_min": -0.34226980805397034,
+    "lambda1_max": 0.5938928127288818,
+    "lambda2_mean": -0.01920134201645851,
+    "lambda2_std": 0.14011627435684204,
+    "dir1_cos_mean": 0.295877069234848,
+    "dir1_cos_std": 0.9455275535583496,
+    "dir2_cos_mean": 0.11569329351186752,
+    "dir2_cos_std": 0.9208891987800598,
+    "dir1_PC1_cos": 0.4340945161656557,
+    "dir1_PC2_cos": 0.15264483136207513,
+    "dir1_PC3_cos": 0.015152545782528407,
+    "dir1_geometry_cos": 0.07840308547019958,
+    "dir1_top_loadings": [
+      {
+        "trait": "top.intensity.vis.hsv.h.histogram.v_avg.bin.04.038_051",
+        "loading": -0.3542526960372925
+      },
+      {
+        "trait": "top.intensity.vis.hsv.s.stddev",
+        "loading": 0.3519956171512604
+      },
+      {
+        "trait": "top.texture.fluo.hsv.s.mean",
+        "loading": 0.28876975178718567
+      },
+      {
+        "trait": "side.texture.vis.rgb.r.std",
+        "loading": 0.27774620056152344
+      },
+      {
+        "trait": "side.texture.vis.lab.l.std",
+        "loading": 0.25446033477783203
+      },
+      {
+        "trait": "top.intensity.vis.hsv.h.histogram.s_avg.bin.07.076_089",
+        "loading": -0.24368628859519958
+      },
+      {
+        "trait": "top.intensity.vis.hsv.h.histogram.s_avg.bin.04.038_051",
+        "loading": 0.23563465476036072
+      },
+      {
+        "trait": "top.intensity.vis.hsv.s.histogram.v_avg.bin.06.063_076",
+        "loading": -0.2001517415046692
+      }
+    ]
+  }
+]

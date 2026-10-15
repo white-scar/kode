@@ -1,0 +1,19 @@
+device=cuda mode=few fams=['ststp', 'lstm', 'ar_transformer', 'ode_rnn', 'gru_ode_bayes'] iters=[0] epochs=20 seed=42
+data: N=509 T=12 P_all=19 times=[42.0, 56.0, 61.0, 64.0, 68.0, 71.0, 75.0, 78.0, 82.0, 84.0, 90.0, 99.0]
+mode=few  P=5  性状=['GCC', 'TGI', 'RGBVI', 'VARI', 'NRMBI']
+[iter 0] mode=few P=5 train=426 test=83 | inner-5 ensemble | epochs=20
+  [iter 0] ststp           done  (3s)
+  [iter 0] lstm            done  (5s)
+  [iter 0] ar_transformer  done  (20s)
+  [iter 0] ode_rnn         done  (25s)
+  [iter 0] gru_ode_bayes   done  (33s)
+
+=== overall ===
+           fam      pcc      mse     RMSE         R2      NMSE    NRMSE  n_cells  n_iter
+ar_transformer 0.357693 0.033299 0.154929  -9.561659 10.561659 0.561412       55       1
+ gru_ode_bayes 0.165381 0.047558 0.186203 -15.769311 16.769311 0.716777       55       1
+          lstm 0.202356 0.028712 0.139767  -7.738971  8.738972 0.490676       55       1
+       ode_rnn 0.163757 0.047663 0.188288 -14.275633 15.275633 0.720407       55       1
+         ststp 0.257439 0.013815 0.104273  -2.659460  3.659460 0.277150       55       1
+
+outputs -> D:\pythonproject\knode\outputs\reproduce\knode_tp1only_uav\few_smoke

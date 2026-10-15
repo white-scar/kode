@@ -1,0 +1,60 @@
+{
+  "foldsets": [
+    0
+  ],
+  "seeds": [
+    42
+  ],
+  "n_epochs": 1000,
+  "models": [
+    "linear_r1",
+    "gompertz_cap",
+    "logistic_cap",
+    "gompertz",
+    "logistic"
+  ],
+  "protocol": "fold-set 0 (folds1-5 train=val, fold6 test), \u9012\u5f52\u9884\u6d4b h0=TP1, \u9010\u6027\u72b6\u9010\u65f6\u70b9 PCC, MSE=\u5f52\u4e00\u5316\u7a7a\u95f4",
+  "note": "linear_r1 \u4e3a\u5f53\u524d\u65b9\u6cd5\u53c2\u8003; gompertz/logistic_cap \u5e26\u9010\u57fa\u56e0\u578b\u5bb9\u91cf K; gompertz/logistic \u53d7\u9650 K\u22611",
+  "per_model": [
+    {
+      "model": "linear_r1",
+      "test_pcc_mean": 0.4956227242946625,
+      "test_pcc_std": 0.0,
+      "test_mse_mean": 0.02054654248058796,
+      "test_mse_std": 0.0,
+      "fold_set": 0
+    },
+    {
+      "model": "gompertz_cap",
+      "test_pcc_mean": 0.4689995348453522,
+      "test_pcc_std": 0.0,
+      "test_mse_mean": 0.0211225226521492,
+      "test_mse_std": 0.0,
+      "fold_set": 0
+    },
+    {
+      "model": "logistic_cap",
+      "test_pcc_mean": 0.45241430401802063,
+      "test_pcc_std": 0.0,
+      "test_mse_mean": 0.022238820791244507,
+      "test_mse_std": 0.0,
+      "fold_set": 0
+    },
+    {
+      "model": "gompertz",
+      "test_pcc_mean": 0.447453111410141,
+      "test_pcc_std": 0.0,
+      "test_mse_mean": 0.03025059774518013,
+      "test_mse_std": 0.0,
+      "fold_set": 0
+    },
+    {
+      "model": "logistic",
+      "test_pcc_mean": 0.42556825280189514,
+      "test_pcc_std": 0.0,
+      "test_mse_mean": 0.03253994137048721,
+      "test_mse_std": 0.0,
+      "fold_set": 0
+    }
+  ]
+}

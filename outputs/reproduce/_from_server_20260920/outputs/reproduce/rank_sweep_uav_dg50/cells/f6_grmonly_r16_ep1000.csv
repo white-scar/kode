@@ -1,0 +1,2 @@
+dataset,cond,rank,fold,epochs,grm_dim,h2_U,h2_V,cv_U,cv_V,ext_U,ext_V,h2_A,cv_A,ext_A,h2_sig,cv_sig,ext_sig,pcc,mse
+uav,grmonly,16,6,1000,50,0.9434,0.9399,0.9982,0.9976,0.9989,0.9985,0.8062,0.9676,0.9805,0.5931,0.8591,0.8873,0.4791,0.007643

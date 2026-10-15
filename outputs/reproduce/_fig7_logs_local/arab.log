@@ -1,0 +1,12 @@
+OUT_DIR = D:\pythonproject\knode\outputs\reproduce\knode_extrap_arab_nt2\smoke
+[DEVICE=cuda] dataset=arab P=45 T=14 n_test=2 grm_dim=30 foldsets=[1] epochs=50
+  foldset 1 rec_t1: PCC=0.2556 (=snapshot) | MSE=0.029552 NMSE=0.4282 NRMSE=0.6544 R2=0.5718 | ref pooled=0.7715 long=nan
+  foldset 1 rec_tk: PCC=0.7730 (=snapshot) | MSE=0.011764 NMSE=0.1704 NRMSE=0.4129 R2=0.8296 | ref pooled=0.9137 long=nan
+  foldset 1 iter: PCC=0.8173 (=snapshot) | MSE=0.006977 NMSE=0.1011 NRMSE=0.3180 R2=0.8989 | ref pooled=0.9487 long=nan
+=== overall (mean over foldsets) ===
+scenario  pcc_mean  pcc_longitudinal_mean  mse_mean  nmse_mean  nrmse_mean  r2_mean  n_foldsets
+    iter    0.8173                    NaN    0.0070     0.1011      0.3180   0.8989           1
+  rec_t1    0.2556                    NaN    0.0296     0.4282      0.6544   0.5718           1
+  rec_tk    0.7730                    NaN    0.0118     0.1704      0.4129   0.8296           1
+saved -> D:\pythonproject\knode\outputs\reproduce\knode_extrap_arab_nt2\smoke\knode_extrap_arab_v2_f1_nt2.csv
+saved -> D:\pythonproject\knode\outputs\reproduce\knode_extrap_arab_nt2\smoke\knode_extrap_arab_v2_f1_nt2_summary.csv

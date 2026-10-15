@@ -1,0 +1,68 @@
+{
+  "top_frac": 0.1,
+  "seeds": [
+    42,
+    1234
+  ],
+  "n_epochs": 800,
+  "protocol": "fold-set 0, folds1-5 train=val, fold6 test (out-of-sample); score = 每时点前10%记1, 得分=时点占比; mid=排除首尾时点",
+  "stage1_true_full_panel": {
+    "full": {
+      "overlap_with_tp1": 0.31393939393939396,
+      "overlap_with_final": 0.5763636363636363,
+      "frac_missed_by_final": 0.42363636363636364,
+      "frac_missed_by_tp1": 0.686060606060606
+    },
+    "mid": {
+      "overlap_with_tp1": 0.29454545454545455,
+      "overlap_with_final": 0.5472727272727272,
+      "frac_missed_by_final": 0.45272727272727264,
+      "frac_missed_by_tp1": 0.7054545454545454
+    }
+  },
+  "stage2_comparison_test_fold": {
+    "Static_TP1": {
+      "overlap_mean": 0.2733333333333333,
+      "resp_pct_mean": 0.33518947003120325,
+      "recovery_missed_by_final": 0.23231292517006802,
+      "recovery_missed_by_tp1": 0.0
+    },
+    "Static_final_oracle": {
+      "overlap_mean": 0.5433333333333333,
+      "resp_pct_mean": 0.6597782050507086,
+      "recovery_missed_by_final": 0.0,
+      "recovery_missed_by_tp1": 0.5453333333333333
+    },
+    "Static_final_pred": {
+      "overlap_mean": 0.3133333333333333,
+      "resp_pct_mean": 0.33481553995012464,
+      "recovery_missed_by_final": 0.18911564625850338,
+      "recovery_missed_by_tp1": 0.26666666666666666
+    },
+    "ODE_GRM": {
+      "overlap_mean": 0.3399999999999999,
+      "resp_pct_mean": 0.3782398188248253,
+      "recovery_missed_by_final": 0.2833333333333334,
+      "recovery_missed_by_tp1": 0.26099999999999995
+    },
+    "ODE_noGRM": {
+      "overlap_mean": 0.27999999999999997,
+      "resp_pct_mean": 0.3231384357686254,
+      "recovery_missed_by_final": 0.2476190476190476,
+      "recovery_missed_by_tp1": 0.08399999999999999
+    },
+    "LSTM": {
+      "overlap_mean": 0.29666666666666663,
+      "resp_pct_mean": 0.2917091123676703,
+      "recovery_missed_by_final": 0.25884353741496596,
+      "recovery_missed_by_tp1": 0.2446666666666667
+    },
+    "Transformer": {
+      "overlap_mean": 0.36,
+      "resp_pct_mean": 0.40255455900972115,
+      "recovery_missed_by_final": 0.25170068027210885,
+      "recovery_missed_by_tp1": 0.281
+    }
+  },
+  "note": "ODE_GRM=KNode rank-1 (GRM+TP1); ODE_noGRM=仅TP1(分离GRM/SNP贡献); LSTM/Transformer=同输入同协议其他动态模型(分离模型族贡献); Static_*=静态基线(TP1/终点/岭回归预测终点)"
+}

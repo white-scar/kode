@@ -1,0 +1,18 @@
+Device:cuda seeds=[42, 1234, 2024, 2025] epochs=1000 configs=['op_lin_d40', 'op_lin_d40_r1', 'op_lin_d0', 'op_hyper_d40', 'op_hyper_d0', 'op_hyper_d10', 'op_hyper_d20', 'op_hyper_d30', 'op_hyper_d50', 'trf_ar', 'cde']
+fold-set 0: train n=320 test n=62
+config          |   含t0 r   剔t0 r   NRMSE | 各seed剔t0
+op_lin_d40      |  0.4967  0.4579  0.2512 | 0.4377 0.4454 0.4461 0.4540
+op_lin_d40_r1   |  0.4865  0.4470  0.2939 | 0.4363 0.4423 0.4477 0.4331
+op_lin_d0       |  0.4735  0.4330  0.2496 | 0.4171 0.4164 0.4132 0.4294
+op_hyper_d40    |  0.5099  0.4722  0.2494 | 0.4677 0.4667 0.4686 0.4681
+op_hyper_d0     |  0.4948  0.4559  0.2472 | 0.4545 0.4498 0.4517 0.4546
+op_hyper_d10    |  0.4992  0.4607  0.2478 | 0.4603 0.4500 0.4599 0.4538
+op_hyper_d20    |  0.5047  0.4666  0.2475 | 0.4640 0.4611 0.4673 0.4596
+op_hyper_d30    |  0.5113  0.4737  0.2484 | 0.4682 0.4702 0.4706 0.4712
+op_hyper_d50    |  0.5099  0.4722  0.2508 | 0.4678 0.4664 0.4674 0.4702
+/data/fandata/WWC/anaconda3/envs/dashuaige/lib/python3.10/site-packages/torch/nn/modules/activation.py:1160: UserWarning: Converting mask without torch.bool dtype to bool; this will negatively affect performance. Prefer to use a boolean mask directly. (Triggered internally at /opt/conda/conda-bld/pytorch_1682343995026/work/aten/src/ATen/native/transformers/attention.cpp:150.)
+  return torch._native_multi_head_attention(
+trf_ar          |  0.4491  0.4407  0.2309 | 0.4371 0.4241 0.4116 0.4345
+cde             |  0.4877  0.4752  0.2282 | 0.4664 0.4759 0.4648 0.4684
+
+Saved: knode_batch_iter0_arab.json + _preds.npz

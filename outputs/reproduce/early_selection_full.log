@@ -1,0 +1,109 @@
+fams=['ode', 'ststp', 'lstm', 'ar_transformer', 'ode_rnn', 'gru_ode_bayes'] iters=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] seed=42 epochs=1000
+===== fold-set 0 =====
+  iter 0 fam ode done
+  iter 0 fam ststp done
+  iter 0 fam lstm done
+  iter 0 fam ar_transformer done
+  iter 0 fam ode_rnn done
+  iter 0 fam gru_ode_bayes done
+  iter 0 saved
+===== fold-set 1 =====
+  iter 1 fam ode done
+  iter 1 fam ststp done
+  iter 1 fam lstm done
+  iter 1 fam ar_transformer done
+  iter 1 fam ode_rnn done
+  iter 1 fam gru_ode_bayes done
+  iter 1 saved
+===== fold-set 2 =====
+  iter 2 fam ode done
+  iter 2 fam ststp done
+  iter 2 fam lstm done
+  iter 2 fam ar_transformer done
+  iter 2 fam ode_rnn done
+  iter 2 fam gru_ode_bayes done
+  iter 2 saved
+===== fold-set 3 =====
+  iter 3 fam ode done
+  iter 3 fam ststp done
+  iter 3 fam lstm done
+  iter 3 fam ar_transformer done
+  iter 3 fam ode_rnn done
+  iter 3 fam gru_ode_bayes done
+  iter 3 saved
+===== fold-set 4 =====
+  iter 4 fam ode done
+  iter 4 fam ststp done
+  iter 4 fam lstm done
+  iter 4 fam ar_transformer done
+  iter 4 fam ode_rnn done
+  iter 4 fam gru_ode_bayes done
+  iter 4 saved
+===== fold-set 5 =====
+  iter 5 fam ode done
+  iter 5 fam ststp done
+  iter 5 fam lstm done
+  iter 5 fam ar_transformer done
+  iter 5 fam ode_rnn done
+  iter 5 fam gru_ode_bayes done
+  iter 5 saved
+===== fold-set 6 =====
+  iter 6 fam ode done
+  iter 6 fam ststp done
+  iter 6 fam lstm done
+  iter 6 fam ar_transformer done
+  iter 6 fam ode_rnn done
+  iter 6 fam gru_ode_bayes done
+  iter 6 saved
+===== fold-set 7 =====
+  iter 7 fam ode done
+  iter 7 fam ststp done
+  iter 7 fam lstm done
+  iter 7 fam ar_transformer done
+  iter 7 fam ode_rnn done
+  iter 7 fam gru_ode_bayes done
+  iter 7 saved
+===== fold-set 8 =====
+  iter 8 fam ode done
+  iter 8 fam ststp done
+  iter 8 fam lstm done
+  iter 8 fam ar_transformer done
+  iter 8 fam ode_rnn done
+  iter 8 fam gru_ode_bayes done
+  iter 8 saved
+===== fold-set 9 =====
+  iter 9 fam ode done
+  iter 9 fam ststp done
+  iter 9 fam lstm done
+  iter 9 fam ar_transformer done
+  iter 9 fam ode_rnn done
+  iter 9 fam gru_ode_bayes done
+  iter 9 saved
+
+===== TASK A: recall@20% (GT=AUC), mean over fold-sets =====
+  trait                                                         h2  lvl     S1     S2    ode   lstm    arT
+  top.geometry.fluo.hull.points                              0.135  low  0.257  0.279  0.357  0.275  0.299
+  top.intensity.vis.hsv.normalized.h.histogram.bin.13.153_1  0.119  low  0.370  0.228  0.366  0.378  0.270
+  side.texture.fluo.lab.a.std                                0.372  mid  0.641  0.425  0.565  0.509  0.473
+  top.texture.fluo.rgb.g.std                                 0.377  mid  0.473  0.382  0.430  0.408  0.398
+  top.intensity.vis.hsv.h.histogram.v_avg.bin.06.063_076     0.601 high  0.422  0.440  0.546  0.420  0.469
+  side.texture.vis.hsv.h.mean                                0.679 high  0.580  0.476  0.527  0.432  0.416
+
+  heritability-level mean recall (GT=AUC):
+    low  : S1=0.314  S2=0.253  KNode(ode)=0.362
+    mid  : S1=0.557  S2=0.404  KNode(ode)=0.497
+    high : S1=0.501  S2=0.458  KNode(ode)=0.536
+
+  paired Wilcoxon over fold-sets (recall, GT=AUC):
+    top.geometry.fluo.hull.points                  ode_vs_S1 p=0.0156  ode_vs_S2 p=0.0781
+    top.intensity.vis.hsv.normalized.h.histogram.b ode_vs_S1 p=0.5  ode_vs_S2 p=0.0781
+    side.texture.fluo.lab.a.std                    ode_vs_S1 p=0.0312  ode_vs_S2 p=0.00781
+    top.texture.fluo.rgb.g.std                     ode_vs_S1 p=0.469  ode_vs_S2 p=0.234
+    top.intensity.vis.hsv.h.histogram.v_avg.bin.06 ode_vs_S1 p=0.0234  ode_vs_S2 p=0.0625
+    side.texture.vis.hsv.h.mean                    ode_vs_S1 p=0.359  ode_vs_S2 p=0.0625
+
+===== TASK B: overlap with true-robust (mean over fold-sets) =====
+  top0.2: TP1=0.425  KNode(ode)=0.452  LSTM=0.400  AR-T=0.429
+  top0.1: TP1=0.303  KNode(ode)=0.313  LSTM=0.260  AR-T=0.290
+
+Saved: knode_early_selection_full.json

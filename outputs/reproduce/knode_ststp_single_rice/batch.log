@@ -1,0 +1,22 @@
+[2026-10-11 07:25:56] === batch start: 20 traits, iters=0,1,2, epochs=1000, parallel=4, outdir=/data/fandata/dashuaige/outputs/reproduce/knode_ststp_single_rice ===
+[2026-10-11 07:26:16]   p04 SV1_Caliper_Length                                           ok       20.0s
+[2026-10-11 07:26:16]   p03 SV1_Boundary_Ratio                                           ok       20.2s
+[2026-10-11 07:26:16]   p02 SV1_Area                                                     ok       20.5s
+[2026-10-11 07:26:16]   p01 PSA                                                          ok       20.5s
+[2026-10-11 07:26:35]   p05 SV1_Center_Y                                                 ok       19.6s
+[2026-10-11 07:26:36]   p06 SV1_Compactness                                              ok       20.0s
+[2026-10-11 07:26:36]   p08 SV1_Max_Dist_Horizon                                         ok       20.1s
+[2026-10-11 07:26:37]   p07 SV1_Convex_Hull_Area                                         ok       20.4s
+[2026-10-11 07:26:55]   p09 SV2_Area                                                     ok       19.4s
+[2026-10-11 07:26:55]   p10 SV2_Boundary_Ratio                                           ok       19.1s
+[2026-10-11 07:26:56]   p12 SV2_Center_Y                                                 ok       19.3s
+[2026-10-11 07:26:56]   p11 SV2_Caliper_Length                                           ok       19.9s
+[2026-10-11 07:27:14]   p13 SV2_Compactness                                              ok       18.9s
+[2026-10-11 07:27:15]   p15 SV2_Max_Dist_Horizon                                         ok       19.0s
+[2026-10-11 07:27:15]   p14 SV2_Convex_Hull_Area                                         ok       20.0s
+[2026-10-11 07:27:15]   p16 TV_Area                                                      ok       19.0s
+[2026-10-11 07:27:33]   p17 TV_Boundary_Ratio                                            ok       19.3s
+[2026-10-11 07:27:35]   p18 TV_Caliper_Length                                            ok       20.1s
+[2026-10-11 07:27:35]   p19 TV_Compactness                                               ok       20.2s
+[2026-10-11 07:27:36]   p20 TV_Convex_Hull_Area                                          ok       20.3s
+[2026-10-11 07:27:36] === batch done: 20/20 完整, 用时 1.7 min ===

@@ -1,0 +1,12 @@
+OUT_DIR = D:\pythonproject\knode\outputs\reproduce\knode_extrap_maize_nt5\smoke
+[DEVICE=cuda] dataset=maize P=50 T=25 n_test=5 grm_dim=50 foldsets=[1] epochs=50
+  foldset 1 rec_t1: PCC=0.2755 (=snapshot) | MSE=0.041967 NMSE=0.6905 NRMSE=0.8309 R2=0.3095 | ref pooled=0.7129 long=0.4897
+  foldset 1 rec_tk: PCC=0.8321 (=snapshot) | MSE=0.019751 NMSE=0.3249 NRMSE=0.5700 R2=0.6751 | ref pooled=0.8557 long=0.4796
+  foldset 1 iter: PCC=0.9173 (=snapshot) | MSE=0.004340 NMSE=0.0714 NRMSE=0.2672 R2=0.9286 | ref pooled=0.9646 long=0.3406
+=== overall (mean over foldsets) ===
+scenario  pcc_mean  pcc_longitudinal_mean  mse_mean  nmse_mean  nrmse_mean  r2_mean  n_foldsets
+    iter    0.9173                 0.3406    0.0043     0.0714      0.2672   0.9286           1
+  rec_t1    0.2755                 0.4897    0.0420     0.6905      0.8309   0.3095           1
+  rec_tk    0.8321                 0.4796    0.0198     0.3249      0.5700   0.6751           1
+saved -> D:\pythonproject\knode\outputs\reproduce\knode_extrap_maize_nt5\smoke\knode_extrap_maize_v2_f1_nt5.csv
+saved -> D:\pythonproject\knode\outputs\reproduce\knode_extrap_maize_nt5\smoke\knode_extrap_maize_v2_f1_nt5_summary.csv

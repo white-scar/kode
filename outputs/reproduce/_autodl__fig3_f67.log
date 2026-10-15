@@ -1,0 +1,19 @@
+Device=cuda
+===== fold 6 =====
+  [persistence] pcc=0.3795 mse=0.08938 (0s)
+  [shared] pcc=0.3770 mse=0.00959 (157s)
+  [grm] pcc=0.4973 mse=0.00896 (157s)
+  [tp1] pcc=0.5134 mse=0.00702 (157s)
+  [full] pcc=0.5506 mse=0.00673 (157s)
+===== fold 7 =====
+  [persistence] pcc=0.4110 mse=0.08721 (0s)
+  [shared] pcc=0.3882 mse=0.00950 (157s)
+  [grm] pcc=0.5086 mse=0.00904 (157s)
+  [tp1] pcc=0.5025 mse=0.00700 (157s)
+  [full] pcc=0.5433 mse=0.00695 (157s)
+       cond  pcc_mean  pcc_std  mse_mean  nrmse_mean  r2_mean  n
+persistence    0.3623   0.0321    0.0889      0.2982  -1.1858  9
+     shared    0.3617   0.0279    0.0102      0.1009   0.7497  9
+        grm    0.4558   0.0309    0.0099      0.0997   0.7558  9
+        tp1    0.4770   0.0383    0.0076      0.0871   0.8135  9
+       full    0.5133   0.0242    0.0075      0.0864   0.8165  9

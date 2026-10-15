@@ -1,0 +1,15 @@
+device=cuda mode=single fams=['ststp'] iters=[0, 1, 2] epochs=1000 seed=42
+data: N=226 T=13 P_all=20 times=[30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0, 41.0, 42.0]
+mode=single  P=1  性状=['PSA']
+[iter 0] mode=single P=1 train=189 test=37 | inner-5 ensemble | epochs=1000
+  [iter 0] ststp           done  (6s)
+[iter 1] mode=single P=1 train=189 test=37 | inner-5 ensemble | epochs=1000
+  [iter 1] ststp           done  (6s)
+[iter 2] mode=single P=1 train=189 test=37 | inner-5 ensemble | epochs=1000
+  [iter 2] ststp           done  (5s)
+
+=== overall ===
+  fam      pcc      mse     RMSE       R2     NMSE    NRMSE  n_cells  n_iter
+ststp 0.965713 0.001116 0.027489 0.916917 0.083083 0.078959       36       3
+
+outputs -> /data/fandata/dashuaige/outputs/reproduce/knode_ststp_single_rice/single_p01_PSA

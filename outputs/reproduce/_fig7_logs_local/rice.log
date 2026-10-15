@@ -1,0 +1,12 @@
+OUT_DIR = D:\pythonproject\knode\outputs\reproduce\knode_extrap_rice_nt2\smoke
+[DEVICE=cuda] dataset=rice P=20 T=13 n_test=2 grm_dim=10 foldsets=[1] epochs=50
+  foldset 1 rec_t1: PCC=0.7503 (=snapshot) | MSE=0.014969 NMSE=0.2519 NRMSE=0.5019 R2=0.7481 | ref pooled=0.8690 long=nan
+  foldset 1 rec_tk: PCC=0.9407 (=snapshot) | MSE=0.004419 NMSE=0.0744 NRMSE=0.2727 R2=0.9256 | ref pooled=0.9645 long=nan
+  foldset 1 iter: PCC=0.9609 (=snapshot) | MSE=0.002580 NMSE=0.0434 NRMSE=0.2084 R2=0.9566 | ref pooled=0.9792 long=nan
+=== overall (mean over foldsets) ===
+scenario  pcc_mean  pcc_longitudinal_mean  mse_mean  nmse_mean  nrmse_mean  r2_mean  n_foldsets
+    iter    0.9609                    NaN    0.0026     0.0434      0.2084   0.9566           1
+  rec_t1    0.7503                    NaN    0.0150     0.2519      0.5019   0.7481           1
+  rec_tk    0.9407                    NaN    0.0044     0.0744      0.2727   0.9256           1
+saved -> D:\pythonproject\knode\outputs\reproduce\knode_extrap_rice_nt2\smoke\knode_extrap_rice_v2_f1_nt2.csv
+saved -> D:\pythonproject\knode\outputs\reproduce\knode_extrap_rice_nt2\smoke\knode_extrap_rice_v2_f1_nt2_summary.csv

@@ -1,0 +1,23 @@
+- Using the phenomic data in a genome-wide association study, a heat-related candidate gene (GRMZM2G083810; hsp18f) was discovered using temporal reflectance phenotypes belonging to flowering times (both irrigated and drought) trials where heat stress also peaked.
+- LD was calculated and visualized using the LDheatmap package in R (Shin et al.
+- Correlations as heatmap illustration between FHTP phenomic data and phenological traits (days to anthesis, DTA; days to silking, DTS; and terminal plant height, PHT).
+- 9) of an SNP (chr3: base pair 8 888 783) in the genic re- gion of the hsp18f candidate gene (chr3: base pairs 8 886 055 to 8 890 247), a member of the heat shock protein (HSP) family in maize, in both irrigated and drought trials.
+- Boosting prediction ability by combining VIs with genomic data has also been shown for yield in wheat and rye (Rutkoski et al.
+- , 2016), in wheat, rice, and triticale using trac- tor-based phenotyping (Würschum et al.
+- Validation of a candidate gene using temporal phenotype data A heat stress-related candidate gene, GRMZM2G083810 (hsp18f), was discovered using the temporal blue index phe- notype around only flowering time in both drought and irrigated trials.
+- Flowering time is among the most sensitive periods to heat and drought stress (Barnabás et al.
+- , 2008), and environmental heat stress probably led to the discovery of GRMZM2G083810 (hsp18f) during flowering (Fig.
+- This indicated that the allelic variation associated with heat stress-related genes discovered in early plant growth stages can impact phenotypes such as ter- minal plant height and flowering times (Fig.
+- heat stress during flowering times in this study).
+- Finally, temporal reflectance bands led to the discovery of many loci, including known genes and a heat- related candidate gene only when heat stress reached a peak around flowering.
+- The effect of drought and heat stress on reproductive processes in cereals.
+- Combining high-throughput phenotyping and genomic information to increase predic- tion and selection accuracy in wheat breeding.
+- Genomic prediction in CIMMYT maize and wheat breeding programs.
+- Functional QTL mapping and genomic prediction of canopy height in wheat measured using a robotic field phenotyping platform.
+- Phenomic selection is a low-cost and high- throughput method based on indirect predictions: proof of concept on wheat and poplar.
+- Canopy temperature and vegetation indices from high-throughput phenotyping improve accuracy of pedigree and ge- nomic selection for grain yield in wheat.
+- Combining genomic and phenomic information for predicting grain protein content and grain yield in spring wheat.
+- LDheatmap: an R func- tion for graphical display of pairwise linkage disequilibria between single nu- cleotide polymorphisms.
+- High-throughput phenotyping platforms enhance genomic selection for wheat grain yield across popu- lations and cycles in early stage.
+- The right y-axis provides temperatures (°C) for the three dashed lines showing the highest, average, and lowest (from above to below) temperature belonging to each DAP on the x-axis.
+- Acknowledgements The authors thank Dr Sorin Popescu, Dr Lonesome Malambo, and Dr Dale Cope for their expert assistance in conducting UAV surveys equipped with RGB and multispectral sensors; and Dr Don Conlee who supplied the weather data containing 10 min increments from Texas A&M Research Farm Mesonet weather station.

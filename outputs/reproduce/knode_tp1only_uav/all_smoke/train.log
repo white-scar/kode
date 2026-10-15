@@ -1,0 +1,19 @@
+device=cuda mode=all fams=['ststp', 'lstm', 'ar_transformer', 'ode_rnn', 'gru_ode_bayes'] iters=[0] epochs=20 seed=42
+data: N=509 T=12 P_all=19 times=[42.0, 56.0, 61.0, 64.0, 68.0, 71.0, 75.0, 78.0, 82.0, 84.0, 90.0, 99.0]
+mode=all  P=19  性状=['BCC', 'BRVI', 'COM1', 'COM2', 'EBI', 'ExGR', 'ExR', 'G-B', 'G-R', 'GCC', 'MExG', 'MRCC', 'NRMBI', 'R-B', 'R/B', 'RCC', 'RGBVI', 'TGI', 'VARI']
+[iter 0] mode=all P=19 train=426 test=83 | inner-5 ensemble | epochs=20
+  [iter 0] ststp           done  (4s)
+  [iter 0] lstm            done  (6s)
+  [iter 0] ar_transformer  done  (20s)
+  [iter 0] ode_rnn         done  (26s)
+  [iter 0] gru_ode_bayes   done  (34s)
+
+=== overall ===
+           fam      pcc      mse     RMSE           R2        NMSE    NRMSE  n_cells  n_iter
+ar_transformer 0.195207 0.028979 0.141972  -223.108943  224.108942 0.464141      209       1
+ gru_ode_bayes 0.193730 0.057122 0.204115  -195.848047  196.848046 0.734653      209       1
+          lstm 0.192444 0.034016 0.159211 -2593.792654 2594.792717 0.592408      209       1
+       ode_rnn 0.198348 0.047129 0.188928  -678.760038  679.760037 0.673618      209       1
+         ststp 0.193940 0.015057 0.114743 -2220.547596 2221.547573 0.296951      209       1
+
+outputs -> D:\pythonproject\knode\outputs\reproduce\knode_tp1only_uav\all_smoke
