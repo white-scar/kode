@@ -1,0 +1,5 @@
+**补充图 3 | 水稻耐盐群体（indica 亚群、对照处理）中 Kode+TP1 与 DynamicGP+MegaLMM+TP1 的逐性状预测精度与遗传力。**
+面板含义同玉米 MAGIC 版（补充图 3）。性状 20 个、时间点 DAS 30–42（13 个；DAS 30 为首个观测输入不参与评分，评估区间为 DAS 31–42）。d/e 面板：迭代协议下 DynamicGP+MegaLMM+TP1 r=-0.647（p=0.002）、Kode+TP1 r=-0.299（p=0.200）；递归协议下 -0.261（p=0.266）与 -0.387（p=0.092）——本群体性状数少、遗传力变异范围窄，迭代协议下仅 DynamicGP+MegaLMM+TP1 达显著，Kode+TP1 未达显著。全性状平均精度：Kode+TP1 0.924（iter）/ 0.788（rec），DynamicGP+MegaLMM+TP1 0.810 / 0.758。
+
+**Extended Data Fig. 3 | Per-trait prediction accuracy and heritability in the rice salinity panel (indica subpopulation, control treatment).**
+Panels as in the maize MAGIC version (Extended Data Fig. 3). 20 traits, DAS 30-42 (13 time points; DAS 30 is the conditioning input and is excluded, so the evaluated interval is DAS 31-42). d/e: iterative r = -0.647 (p = 0.002) / -0.299 (p = 0.200); recursive r = -0.261 (p = 0.266) / -0.387 (p = 0.092); with only 20 traits and a narrow range of heritability CV, only DynamicGP+MegaLMM+TP1 reaches significance under the iterative protocol, while Kode+TP1 does not. Mean accuracy over traits: Kode+TP1 0.924 (iter) / 0.788 (rec), DynamicGP+MegaLMM+TP1 0.810 / 0.758.

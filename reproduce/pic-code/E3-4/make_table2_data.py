@@ -23,14 +23,14 @@ DS = {
     "maize": dict(
         unified=os.path.join(ROOT, "reproduce", "pic-code", "pic2", "unified_norm_author_vs_kode_per_foldset.csv"),
         herit=os.path.join(HERE, "maize", "X_all_unrolled_h.csv"),
-        rrblup=os.path.join(ROOT, "outputs", "dynamicGP", "Training_Validation_Results",
-                            "rrBLUP_benchmarks_prediction_accuracies.csv"),
+        rrblup=os.path.join(ROOT, "outputs", "reproduce", "dynamicGP_rrbench_legacy",
+                            "rrBLUP_benchmarks_prediction_accuracies_maize.csv"),
         thr_max=0.70, t1=15, label="Maize MAGIC"),
     "arab": dict(
         unified=os.path.join(ROOT, "reproduce", "pic-code", "pic2", "arab-E1", "unified_norm_author_vs_kode_per_foldset.csv"),
         herit=os.path.join(HERE, "arab", "X_all_unrolled_h.csv"),
-        rrblup=os.path.join(ROOT, "outputs", "dynamicGP", "Arabidopsis", "Training_Validation_Results",
-                            "rrBLUP_benchmarks_prediction_accuracies.csv"),
+        rrblup=os.path.join(ROOT, "outputs", "reproduce", "dynamicGP_rrbench_legacy",
+                            "rrBLUP_benchmarks_prediction_accuracies_arabidopsis.csv"),
         thr_max=0.75, t1=8, label="Arabidopsis"),
     "rice": dict(
         unified=os.path.join(ROOT, "reproduce", "pic-code", "pic2", "rice-E2", "unified_norm_author_vs_kode_per_foldset_v2.csv"),

@@ -1,0 +1,5 @@
+dataset,method,h2_training,h2_validation,r_pred_cross_validation,r_pred_validation
+maize,dynamicGP,0.324 ± 0.016,0.509 ± 0.070,0.458 ± 0.013,0.508 ± 0.046
+maize,Kode,0.863 ± 0.037,0.922 ± 0.054,0.713 ± 0.024,0.730 ± 0.035
+arab,dynamicGP,0.163 ± 0.025,0.268 ± 0.107,0.435 ± 0.008,0.480 ± 0.026
+arab,Kode,0.540 ± 0.022,0.806 ± 0.105,0.669 ± 0.013,0.666 ± 0.023

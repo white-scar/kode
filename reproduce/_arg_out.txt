@@ -1,0 +1,112 @@
+===============================================================================================
+maize  maize_magic/knode_maize_np_tp1_affine.py
+ 208 def main():
+ 209     global N_EPOCHS, N_FOLDSETS, MODES, DRIFT, TAG
+ 210     ap = argparse.ArgumentParser()
+ 211     ap.add_argument('--epochs', type=int, default=N_EPOCHS)
+ 212     ap.add_argument('--foldsets', type=int, default=N_FOLDSETS)
+ 213     ap.add_argument('--mode', type=str, default=None, help='只跑指定模式, 逗号分隔')
+ 214     ap.add_argument('--drift', type=str, default='affine', choices=['linear', 'affine'])
+ 215     ap.add_argument('--tag', default='')
+ 216     a, _ = ap.parse_known_args()
+ 217     N_EPOCHS = a.epochs; N_FOLDSETS = a.foldsets; DRIFT = a.drift; TAG = a.tag
+ 218     if a.mode: MODES = [m.strip() for m in a.mode.split(',')]
+ 219 
+ 220     D = load_data(N_FOLDSETS)
+ 221     P, T, N = D['P'], D['T'], D['N']
+ 222     trait_cols = D['trait_cols']; times_all = D['times_all']; tn = D['tn']
+ 223     grm_pca = D['grm_pca']; Y_all = D['Y_all']; cv_foldsets = D['cv_foldsets']
+ 224     keep_idx = list(range(T)); keep_times = times_all[keep_idx]
+ 225     times_t = torch.tensor(tn, dtype=torch.float32, device=DEVICE)
+ 226 
+ 227     print(f'[{DEVICE}] fold-sets={N_FOLDSETS} epochs={N_EPOCHS} modes={MODES}')
+ 228 
+ 229     all_summary = []; all_detail = []
+ 230     for mode in MODES:
+ 231         print(f'\n{"="*60}\n  mode: {mode}   (h0 = D{int(keep_times[0])})\n{"="*60}')
+ 232         is_iter = 'iter' in mode
+ 233         SPLITS = ['train', 'test']
+===============================================================================================
+arab  arab/knode_arab_np_tp1_affine.py
+ 200 def main():
+ 201     global N_EPOCHS, N_FOLDSETS, MODES, DRIFT, TAG
+ 202     ap = argparse.ArgumentParser()
+ 203     ap.add_argument('--epochs', type=int, default=N_EPOCHS)
+ 204     ap.add_argument('--foldsets', type=int, default=N_FOLDSETS)
+ 205     ap.add_argument('--mode', type=str, default=None, help='只跑指定模式, 逗号分隔')
+ 206     ap.add_argument('--drift', type=str, default='affine', choices=['linear', 'affine'])
+ 207     ap.add_argument('--tag', default='')
+ 208     a, _ = ap.parse_known_args()
+ 209     N_EPOCHS = a.epochs; N_FOLDSETS = a.foldsets; DRIFT = a.drift; TAG = a.tag
+ 210     if a.mode: MODES = [m.strip() for m in a.mode.split(',')]
+ 211 
+ 212     D = load_data(N_FOLDSETS)
+ 213     P, T, N = D['P'], D['T'], D['N']
+ 214     trait_cols = D['trait_cols']; times_all = D['times_all']; tn = D['tn']
+ 215     grm_pca = D['grm_pca']; Y_all = D['Y_all']; cv_foldsets = D['cv_foldsets']
+ 216     keep_idx = list(range(T)); keep_times = times_all[keep_idx]
+ 217     times_t = torch.tensor(tn, dtype=torch.float32, device=DEVICE)
+ 218 
+ 219     print(f'[{DEVICE}] fold-sets={N_FOLDSETS} epochs={N_EPOCHS} modes={MODES}')
+ 220 
+ 221     all_summary = []; all_detail = []
+ 222     for mode in MODES:
+ 223         print(f'\n{"="*60}\n  mode: {mode}   (h0 = D{int(keep_times[0])})\n{"="*60}')
+ 224         is_iter = 'iter' in mode
+ 225         SPLITS = ['train', 'test']
+===============================================================================================
+rice  rice/knode_rice_np_tp1_affine.py
+ 206 def main():
+ 207     global N_EPOCHS, N_FOLDSETS, MODES, DRIFT, TAG
+ 208     ap = argparse.ArgumentParser()
+ 209     ap.add_argument('--epochs', type=int, default=N_EPOCHS)
+ 210     ap.add_argument('--foldsets', type=int, default=N_FOLDSETS)
+ 211     ap.add_argument('--mode', type=str, default=None, help='只跑指定模式, 逗号分隔')
+ 212     ap.add_argument('--drift', type=str, default='affine', choices=['linear', 'affine'])
+ 213     ap.add_argument('--tag', default='')
+ 214     a, _ = ap.parse_known_args()
+ 215     N_EPOCHS = a.epochs; N_FOLDSETS = a.foldsets; DRIFT = a.drift; TAG = a.tag
+ 216     if a.mode: MODES = [m.strip() for m in a.mode.split(',')]
+ 217 
+ 218     D = load_data(N_FOLDSETS)
+ 219     P, T, N = D['P'], D['T'], D['N']
+ 220     trait_cols = D['trait_cols']; times_all = D['times_all']; tn = D['tn']
+ 221     grm_pca = D['grm_pca']; Y_all = D['Y_all']; cv_foldsets = D['cv_foldsets']
+ 222     keep_idx = list(range(T)); keep_times = times_all[keep_idx]
+ 223     times_t = torch.tensor(tn, dtype=torch.float32, device=DEVICE)
+ 224 
+ 225     print(f'[{DEVICE}] fold-sets={N_FOLDSETS} epochs={N_EPOCHS} modes={MODES}')
+ 226 
+ 227     all_summary = []; all_detail = []; rows_pf = []
+ 228     for mode in MODES:
+ 229         print(f'\n{"="*60}\n  mode: {mode}   (h0 = D{int(keep_times[0])})\n{"="*60}')
+ 230         is_iter = 'iter' in mode
+ 231         SPLITS = ['train', 'test']
+===============================================================================================
+uav  maize_RGB/knode_maize_rgb_drought_np_tp1_affine.py
+ 209 def main():
+ 210     global N_EPOCHS, N_FOLDSETS, MODES, DRIFT, TAG
+ 211     ap = argparse.ArgumentParser()
+ 212     ap.add_argument('--epochs', type=int, default=N_EPOCHS)
+ 213     ap.add_argument('--foldsets', type=int, default=N_FOLDSETS)
+ 214     ap.add_argument('--mode', type=str, default=None, help='只跑指定模式, 逗号分隔')
+ 215     ap.add_argument('--drift', type=str, default='affine', choices=['linear', 'affine'])
+ 216     ap.add_argument('--tag', default='')
+ 217     a, _ = ap.parse_known_args()
+ 218     N_EPOCHS = a.epochs; N_FOLDSETS = a.foldsets; DRIFT = a.drift; TAG = a.tag
+ 219     if a.mode: MODES = [m.strip() for m in a.mode.split(',')]
+ 220 
+ 221     D = load_data(N_FOLDSETS)
+ 222     P, T, N = D['P'], D['T'], D['N']
+ 223     trait_cols = D['trait_cols']; times_all = D['times_all']; tn = D['tn']
+ 224     grm_pca = D['grm_pca']; Y_all = D['Y_all']; cv_foldsets = D['cv_foldsets']
+ 225     keep_idx = list(range(T)); keep_times = times_all[keep_idx]
+ 226     times_t = torch.tensor(tn, dtype=torch.float32, device=DEVICE)
+ 227 
+ 228     print(f'[{DEVICE}] fold-sets={N_FOLDSETS} epochs={N_EPOCHS} modes={MODES}')
+ 229 
+ 230     all_summary = []; all_detail = []
+ 231     for mode in MODES:
+ 232         print(f'\n{"="*60}\n  mode: {mode}   (h0 = D{int(keep_times[0])})\n{"="*60}')
+ 233         is_iter = 'iter' in mode
+ 234         SPLITS = ['train', 'test']
