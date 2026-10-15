@@ -1,17 +1,30 @@
-# ===== 数据 / 结果 / 中间产物：目录保留，内容不入库 =====
-data/*
+# ===== 数据 / 结果：入库 =====
+# 2026-10-15 决定：论文未发表，先放 data/ 与 outputs/ 的内容（边角料）
+# 只排除单文件超大 / 第三方原始档（GitHub 单文件 >100 MB 会被拒收）
+data/arabidopsis/myGD_w_h.csv
+data/arabidopsis/myGD_w_h_maf0.05_filtered.txt
+data/rice_salinity/GWAS_data_and_scripts.zip
 !data/.gitkeep
-outputs/*
 !outputs/.gitkeep
-cal/*
-!cal/.gitkeep
 
-# reproduce 下的临时 / 备份 / 缓存
-reproduce/**/_verify_bak*/
-reproduce/**/_bak_*/
-reproduce/**/_tmp_*/
-reproduce/**/__pycache__/
+# ===== 临时 / 备份 / 缓存 =====
+**/_verify_bak*/
+**/_bak_*/
+**/_bak_*
+**/_tmp_*/
+**/__pycache__/
 reproduce/**/outputs/
+**/*.bak_*
+**/*.bak
+_tmp_*
+*.7z
+*.traineddata
+
+# ===== 第三方包副本 / 演示临时目录 / 本地 agent 配置 =====
+MegaLMM-master/
+.tmp_ppt_build/
+.tmp_dynnet_my/
+.agents/
 
 # ===== 凭据 / 服务器信息（绝不入库）=====
 .claude/
@@ -38,29 +51,3 @@ HANDOVER*.md
 *.RData
 *.RDS
 *.pkl
-*.joblib
-*.feather
-*.parquet
-*.tar
-*.tar.gz
-*.zip
-*.7z
-logs/
-runs/
-checkpoints/
-
-# ===== 论文 / 内部文档 =====
-AGENTS.md
-*结果*
-*创新点*
-*数据集来源*
-*HANDOVER*
-*.docx
-*.pdf
-
-# ===== Python =====
-__pycache__/
-*.py[cod]
-.ipynb_checkpoints/
-.venv/
-venv/
