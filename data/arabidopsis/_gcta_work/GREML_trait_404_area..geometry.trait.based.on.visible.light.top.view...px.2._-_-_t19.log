@@ -1,0 +1,71 @@
+*******************************************************************
+* Genome-wide Complex Trait Analysis (GCTA)
+* version 1.93.2 beta Windows
+* (C) 2010-present, Jian Yang, The University of Queensland
+* Please report bugs to Jian Yang <jian.yang.qt@gmail.com>
+*******************************************************************
+Analysis started at 10:55:52 ?D1迆㊣那℅?那㊣?? on Tue Aug 18 2026.
+Hostname: DASHUAIGUO
+
+Accepted options:
+--grm GCTA_GRM/myGD_w_h_GRM_maf0.05_filtered
+--pheno _gcta_work/temp_table.txt
+--mpheno 404
+--reml
+--out _gcta_work/GREML_trait_404_area..geometry.trait.based.on.visible.light.top.view...px.2._-_-_t19
+
+Note: This is a multi-thread program. You could specify the number of threads by the --thread-num option to speed up the computation if there are multiple processors in your machine.
+
+Reading IDs of the GRM from [GCTA_GRM/myGD_w_h_GRM_maf0.05_filtered.grm.id].
+382 IDs read from [GCTA_GRM/myGD_w_h_GRM_maf0.05_filtered.grm.id].
+Reading the GRM from [GCTA_GRM/myGD_w_h_GRM_maf0.05_filtered.grm.bin].
+GRM for 382 individuals are included from [GCTA_GRM/myGD_w_h_GRM_maf0.05_filtered.grm.bin].
+Reading phenotypes from [_gcta_work/temp_table.txt].
+There are 1848 traits specified in the file [_gcta_work/temp_table.txt].
+Trait #404 is included for analysis.
+Non-missing phenotypes of 383 individuals are included from [_gcta_work/temp_table.txt].
+
+382 individuals are in common in these files.
+
+Performing  REML analysis ... (Note: may take hours depending on sample size).
+382 observations, 1 fixed effect(s), and 2 variance component(s)(including residual variance).
+Calculating prior values of variance components by EM-REML ...
+Updated prior values:  0.0042335 0.00476726
+logL: 674.928
+Running AI-REML algorithm ...
+Iter.	logL	V(G)	V(e)	
+1	681.75	0.00332	0.00534	
+2	685.12	0.00280	0.00572	
+3	686.44	0.00248	0.00597	
+4	686.99	0.00229	0.00613	
+5	687.23	0.00190	0.00645	
+6	687.42	0.00192	0.00643	
+7	687.42	0.00192	0.00643	
+8	687.42	0.00192	0.00643	
+Log-likelihood ratio converged.
+
+Calculating the logLikelihood for the reduced model ...
+(variance component 1 is dropped from the model)
+Calculating prior values of variance components by EM-REML ...
+Updated prior values: 0.01039
+logL: 676.56191
+Running AI-REML algorithm ...
+Iter.	logL	V(e)	
+1	676.56	0.01039	
+Log-likelihood ratio converged.
+
+Summary result of REML analysis:
+Source	Variance	SE
+V(G)	0.001923	0.000649
+V(e)	0.006429	0.001124
+Vp	0.008352	0.000719
+V(G)/Vp	0.230260	0.086661
+
+Sampling variance/covariance of the estimates of variance components:
+4.218356e-07	-5.839508e-07	
+-5.839508e-07	1.263180e-06	
+
+Summary result of REML analysis has been saved in the file [_gcta_work/GREML_trait_404_area..geometry.trait.based.on.visible.light.top.view...px.2._-_-_t19.hsq].
+
+Analysis finished at 10:55:52 ?D1迆㊣那℅?那㊣?? on Tue Aug 18 2026
+Overall computational time: 0.28 sec.
